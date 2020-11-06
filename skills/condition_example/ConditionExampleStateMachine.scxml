@@ -22,11 +22,16 @@
     </state>
 
     <state id="get" scope:bt_status="SKILL_IDLE">
+
       <onentry>
         <log expr="&quot;Inside get&quot;"/>
+            <script>
+              is_true = !is_true;
+              stateMachine()->submitEvent((is_true) ? "STATUS_SUCCESS" : "STATUS_FAILED");
+            </script>
       </onentry>
-    <transition event="STATUS_SUCCESS" target="success" />
-    <transition event="STATUS_FAILED" target="failure" />
+<transition event="STATUS_SUCCESS" target="success" />
+<transition event="STATUS_FAILED" target="failure" />
     </state>
 
     <state id="success" scope:bt_status="SKILL_SUCCESS">

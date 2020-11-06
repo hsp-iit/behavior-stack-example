@@ -7,7 +7,7 @@
     <!-- ////////// -->
     <BehaviorTree ID="BehaviorTree">
         <ReactiveSequence>
-            <Condition ID="YARPCondition" name="StateChartExample"/>
+            <Condition ID="YARPCondition" name="ConditionExample"/>
         </ReactiveSequence>
     </BehaviorTree>
 </root>

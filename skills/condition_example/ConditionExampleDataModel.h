@@ -56,11 +56,8 @@ public:
 
     yarp::os::Network yarp;
 
-  //  yarp::os::RpcClient client_port_batteryReader;
-
-
-  //  BatteryReader batteryReader;
-    double level { 100.0 };
+    bool is_true { false };
+    int index {0};
 
 };
 

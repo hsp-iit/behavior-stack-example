@@ -99,7 +99,7 @@ int main()
 
    // bt_factory.registerNodeType<FlipFlopCondition>("FlipFlopCondition");
 
-    BT::Tree tree = bt_factory.createTreeFromFile("./test_battery_BT.xml");
+    BT::Tree tree = bt_factory.createTreeFromFile("./test_condition_BT.xml");
 
 
     // Create some logger
@@ -140,13 +140,13 @@ int main()
     yarp::os::Network yarp;
     yarp::os::Port port;
 
-    if (!port.open/*Fake*/("/tick/monitor")) {
-        return EXIT_FAILURE;
-    }
-
-    if (!port.addOutput("/monitor")) {
-        return EXIT_FAILURE;
-    }
+    // if (!port.open/*Fake*/("/tick/monitor")) {
+    //     return EXIT_FAILURE;
+    // }
+    //
+    // if (!port.addOutput("/monitor")) {
+    //     return EXIT_FAILURE;
+    // }
 
 
     while(true)
@@ -167,7 +167,3 @@ int main()
 
     return 0;
 }
-
-
-
-
