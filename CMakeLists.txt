@@ -8,6 +8,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt5 COMPONENTS Widgets Qml Scxml REQUIRED)
 set(CMAKE_AUTOMOC ON)
 
-include(behavior_trees)
-include(skills)
-include(components)
+
+# BehaviorTree.CPP links Boost::coroutine, but does not look for it
+find_package(Boost COMPONENTS coroutine REQUIRED)
+find_package(BehaviorTree REQUIRED)
+
+find_package(YARP COMPONENTS os idl_tools dev REQUIRED)
+
+add_subdirectory(BT_protocol)
+#add_subdirectory(interfaces)
+add_subdirectory(behavior_trees)
+add_subdirectory(skills)
+#add_subdirectory(components)

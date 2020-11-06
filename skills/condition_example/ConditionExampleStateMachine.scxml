@@ -1,0 +1,45 @@
+<!--
+ Copyright (C) 2020 Fondazione Istituto Italiano di Tecnologia (IIT)
+ All Rights Reserved.
+-->
+
+<scxml
+    xmlns="http://www.w3.org/2005/07/scxml"
+    version="1.0"
+    name="ConditionExampleStateMachine"
+    initial="idle"
+    datamodel="cplusplus:ConditionExampleDataModel:ConditionExampleDataModel.h"
+    xmlns:scope="http://www.scope.org/scope"
+    xmlns:scope_yarp="http://www.scope.org/scope_yarp"
+    scope:skill_version="0.1"
+>
+
+    <state id="idle" scope:bt_status="SKILL_IDLE">
+        <transition event="CMD_START" target="get" />
+        <onentry>
+          <log expr="&quot;Inside Idle&quot;"/>
+        </onentry>
+    </state>
+
+    <state id="get" scope:bt_status="SKILL_IDLE">
+      <onentry>
+        <log expr="&quot;Inside get&quot;"/>
+      </onentry>
+    <transition event="STATUS_SUCCESS" target="success" />
+    <transition event="STATUS_FAILED" target="failure" />
+    </state>
+
+    <state id="success" scope:bt_status="SKILL_SUCCESS">
+        <transition event="REQUEST_ACK" target="idle" />
+        <onentry>
+          <log expr="&quot;Inside Success&quot;"/>
+        </onentry>
+    </state>
+
+    <state id="failure" scope:bt_status="SKILL_FAILURE">
+        <transition event="REQUEST_ACK" target="idle" />
+        <onentry>
+          <log expr="&quot;Inside Failure&quot;"/>
+        </onentry>
+    </state>
+</scxml>
