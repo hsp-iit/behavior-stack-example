@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" binding="early" xmlns:scope="http://www.scope.org/scope" xmlns:scope_yarp="http://www.scope.org/scope_yarp" name="ConditionExampleStateMachine" datamodel="cplusplus:ConditionExampleDataModel:ConditionExampleDataModel.h" scope:skill_version="0.1" qt:editorversion="4.11.0" xmlns:qt="http://www.qt.io/2015/02/scxml-ext" initial="idle">
+<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" binding="early" xmlns:scope="http://www.scope.org/scope" xmlns:scope_yarp="http://www.scope.org/scope_yarp" name="ActionExampleStateMachine" datamodel="cplusplus:ActionExampleDataModel:ActionExampleDataModel.h" scope:skill_version="0.1" qt:editorversion="4.11.0" xmlns:qt="http://www.qt.io/2015/02/scxml-ext" initial="idle">
     <qt:editorinfo initialGeometry="45.30;-198.76;-20;-20;40;40"/>
     <state id="idle" scope:bt_status="SKILL_IDLE">
         <qt:editorinfo scenegeometry="45.30;-97.51;-14.70;-147.51;120;100" geometry="45.30;-97.51;-60;-50;120;100"/>

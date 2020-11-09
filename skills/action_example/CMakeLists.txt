@@ -1,0 +1,38 @@
+################################################################################
+#                                                                              #
+# Copyright (C) 2020 Fondazione Istituto Italiano di Tecnologia (IIT)          #
+# All Rights Reserved.                                                         #
+#                                                                              #
+################################################################################
+
+# Create the skill (state machine executable)
+
+
+add_executable(ActionExample)
+target_include_directories(ActionExample
+  PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_BINARY_DIR}
+)
+target_sources(ActionExample
+  PRIVATE
+    main.cpp
+    ActionExample.cpp
+    ActionExample.h
+    ActionExampleDataModel.cpp
+    ActionExampleDataModel.h
+)
+
+qt5_add_statecharts(STATECHARTS_FILES ActionExampleStateMachine.scxml)
+set_source_files_properties(${CMAKE_CURRENT_BINARY_DIR}/ActionExampleStateMachine.cpp PROPERTIES SKIP_AUTOMOC TRUE)
+
+target_sources(ActionExample
+  PRIVATE
+    ${STATECHARTS_FILES})
+
+target_link_libraries(ActionExample
+  PRIVATE
+    Qt5::Scxml
+    YARP::YARP_os
+    YARP::YARP_init
+    BT_protocol)
