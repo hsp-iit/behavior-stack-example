@@ -16,7 +16,7 @@
 
 #include <yarp/os/Wire.h>
 #include <yarp/os/idl/WireTypes.h>
-#include <SkillAck.h>
+#include <SkillStatus.h>
 
 class Skill_request :
         public yarp::os::Wire
@@ -26,22 +26,22 @@ public:
     Skill_request();
 
     /**
-     * request_ack  Get the ack of the skill.
-     * return              The enum indicating the ack of the skill..
+     * get_status  Get the ack of the skill.
+     * return              The enum indicating the status of the skill.
      */
-    virtual SkillAck request_ack();
+    virtual SkillStatus get_status();
 
     /**
-     * request_stop  Send a cmd_start skill.
+     * start  Send a start request to the s skill.
      * return               void.
      */
-    virtual void send_start();
+    virtual void start();
 
     /**
-     * send_stop  Send a CMD_STOP request to the skill.
+     * stop  Send a stop request to the skill.
      * return              void.
      */
-    virtual void send_stop();
+    virtual void stop();
 
     // help method
     virtual std::vector<std::string> help(const std::string& functionName = "--all");

@@ -47,6 +47,6 @@ PortsList YARPAction::providedPorts()
 void YARPAction::halt()
 {
     yDebug() << "Node" << ActionNodeBase::name() << "sending halt to skill";
-    m_bt_request.send_stop();
+    m_bt_request.stop();
     // send halt request to server
 }

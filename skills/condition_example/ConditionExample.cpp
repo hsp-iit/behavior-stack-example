@@ -31,7 +31,7 @@ ConditionExample::ConditionExample(std::string name ) :
     stateMachine.setDataModel(&dataModel);
 }
 
-bool ConditionExample::start()
+bool ConditionExample::execute()
 {
     if (!yarp::os::NetworkBase::checkNetwork()) {
         qWarning("Error! YARP Network is not initialized");
@@ -53,30 +53,30 @@ bool ConditionExample::start()
     return true;
 }
 
-SkillAck ConditionExample::request_ack()
+SkillStatus ConditionExample::get_status()
 {
-    yCTrace(CONDITIONEXAMPLE) << "request_ack";
+    yCTrace(CONDITIONEXAMPLE) << "get_status";
 
     while (true) {
         for (const auto& state : stateMachine.activeStateNames()) {
             if (state == "idle") {
-                stateMachine.submitEvent("REQUEST_ACK");
-                yCDebug(CONDITIONEXAMPLE) << "request_ack returning SKILL_IDLE";
+                stateMachine.submitEvent("get_status");
+                yCDebug(CONDITIONEXAMPLE) << "get_status returning SKILL_IDLE";
                 return SKILL_IDLE;
             }
             if (state == "get") {
-                stateMachine.submitEvent("REQUEST_ACK");
-                yCDebug(CONDITIONEXAMPLE) << "request_ack returning SKILL_IDLE";
+                stateMachine.submitEvent("get_status");
+                yCDebug(CONDITIONEXAMPLE) << "get_status returning SKILL_IDLE";
                 return SKILL_IDLE;
             }
             if (state == "success") {
-                stateMachine.submitEvent("REQUEST_ACK");
-                yCDebug(CONDITIONEXAMPLE) << "request_ack returning SKILL_SUCCESS";
+                stateMachine.submitEvent("get_status");
+                yCDebug(CONDITIONEXAMPLE) << "get_status returning SKILL_SUCCESS";
                 return SKILL_SUCCESS;
             }
             if (state == "failure") {
-                stateMachine.submitEvent("REQUEST_ACK");
-                yCDebug(CONDITIONEXAMPLE) << "request_ack returning SKILL_FAILURE";
+                stateMachine.submitEvent("get_status");
+                yCDebug(CONDITIONEXAMPLE) << "get_status returning SKILL_FAILURE";
                 return SKILL_FAILURE;
             }
 
@@ -84,14 +84,14 @@ SkillAck ConditionExample::request_ack()
     }
 }
 
-void ConditionExample::send_start()
+void ConditionExample::start()
 {
-    yCTrace(CONDITIONEXAMPLE) << "send_start";
-    stateMachine.submitEvent("CMD_START");
+    yCTrace(CONDITIONEXAMPLE) << "start";
+    stateMachine.submitEvent("start");
 }
 
-void ConditionExample::send_stop()
+void ConditionExample::stop()
 {
-    yCTrace(CONDITIONEXAMPLE) << "send_stop";
-    stateMachine.submitEvent("CMD_STOP",  QStateMachine::HighPriority);
+    yCTrace(CONDITIONEXAMPLE) << "stop";
+    stateMachine.submitEvent("stop",  QStateMachine::HighPriority);
 }

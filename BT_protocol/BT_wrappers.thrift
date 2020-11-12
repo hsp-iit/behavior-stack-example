@@ -13,30 +13,30 @@
  *   its task;
  * - "SKILL_RUNNING" indicates that the node has successfully moved forward during this
  *   time step, but the task is not yet complete;
- * - "SKILL_IDLE" indicates that the node hasn't run yet.
+ * - "SKILL_IDLE" indicates that the node is waiting to be (re)executed.
  */
-enum SkillAck {SKILL_IDLE, SKILL_RUNNING, SKILL_SUCCESS, SKILL_FAILURE, SKILL_STARTED, SKILL_STOPPED}
+enum SkillStatus {SKILL_IDLE, SKILL_RUNNING, SKILL_SUCCESS, SKILL_FAILURE}
 
 service Skill_request {
 
     /**
-     * request_ack  Get the ack of the skill.
+     * get_status  Get the ack of the skill.
      *
-     * return              The enum indicating the ack of the skill..
+     * return              The enum indicating the status of the skill.
      */
-    SkillAck request_ack()
+    SkillStatus get_status()
 
     /**
-     * request_stop  Send a cmd_start skill.
+     * start  Send a start request to the s skill.
      *
      * return               void.
      */
-    void send_start();
+    void start();
 
     /**
-     * send_stop  Send a CMD_STOP request to the skill.
+     * stop  Send a stop request to the skill.
      *
      * return              void.
      */
-     void send_stop();
+     void stop();
 }

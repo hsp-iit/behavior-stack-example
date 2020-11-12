@@ -13,9 +13,9 @@
 
 #include <yarp/os/Wire.h>
 #include <yarp/os/idl/WireTypes.h>
-#include <SkillAck.h>
+#include <SkillStatus.h>
 
-int SkillAckVocab::fromString(const std::string& input)
+int SkillStatusVocab::fromString(const std::string& input)
 {
     // definitely needs optimizing :-)
     if (input=="SKILL_IDLE") {
@@ -30,17 +30,11 @@ int SkillAckVocab::fromString(const std::string& input)
     if (input=="SKILL_FAILURE") {
         return static_cast<int>(SKILL_FAILURE);
     }
-    if (input=="SKILL_STARTED") {
-        return static_cast<int>(SKILL_STARTED);
-    }
-    if (input=="SKILL_STOPPED") {
-        return static_cast<int>(SKILL_STOPPED);
-    }
     return -1;
 }
-std::string SkillAckVocab::toString(int input) const
+std::string SkillStatusVocab::toString(int input) const
 {
-    switch(static_cast<SkillAck>(input)) {
+    switch(static_cast<SkillStatus>(input)) {
     case SKILL_IDLE:
         return "SKILL_IDLE";
     case SKILL_RUNNING:
@@ -49,10 +43,6 @@ std::string SkillAckVocab::toString(int input) const
         return "SKILL_SUCCESS";
     case SKILL_FAILURE:
         return "SKILL_FAILURE";
-    case SKILL_STARTED:
-        return "SKILL_STARTED";
-    case SKILL_STOPPED:
-        return "SKILL_STOPPED";
     }
     return "";
 }

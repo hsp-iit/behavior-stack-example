@@ -18,7 +18,7 @@ int main(int argc, char **argv)
     QCoreApplication::setApplicationVersion("0.1");
 
     ConditionExample bt("ConditionExample");
-    if (!bt.start()) {
+    if (!bt.execute()) {
         return 1;
     }
 

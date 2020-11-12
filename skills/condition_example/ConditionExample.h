@@ -21,11 +21,11 @@ class ConditionExample:
 public:
     ConditionExample(std::string name );
 
-    bool start();
+    bool execute();
 
-    SkillAck request_ack() override;
-    void send_start() override;
-    void send_stop() override;
+    SkillStatus get_status() override;
+    void start() override;
+    void stop() override;
 
 private:
     std::string name;

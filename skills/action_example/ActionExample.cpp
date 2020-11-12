@@ -31,7 +31,7 @@ ActionExample::ActionExample(std::string name ) :
     stateMachine.setDataModel(&dataModel);
 }
 
-bool ActionExample::start()
+bool ActionExample::execute()
 {
     if (!yarp::os::NetworkBase::checkNetwork()) {
         qWarning("Error! YARP Network is not initialized");
@@ -53,29 +53,29 @@ bool ActionExample::start()
     return true;
 }
 
-SkillAck ActionExample::request_ack()
+SkillStatus ActionExample::get_status()
 {
-    yCTrace(ACTIONEXAMPLE) << "request_ack";
+    yCTrace(ACTIONEXAMPLE) << "get_status";
 
     while (true) {
         for (const auto& state : stateMachine.activeStateNames()) {
             if (state == "idle") {
-                stateMachine.submitEvent("REQUEST_ACK");
+                stateMachine.submitEvent("get_status");
                 yCDebug(ACTIONEXAMPLE) << "request_ack returning SKILL_IDLE";
                 return SKILL_IDLE;
             }
             if (state == "get") {
-                stateMachine.submitEvent("REQUEST_ACK");
+                stateMachine.submitEvent("get_status");
                 yCDebug(ACTIONEXAMPLE) << "request_ack returning SKILL_IDLE";
                 return SKILL_IDLE;
             }
             if (state == "success") {
-                stateMachine.submitEvent("REQUEST_ACK");
+                stateMachine.submitEvent("get_status");
                 yCDebug(ACTIONEXAMPLE) << "request_ack returning SKILL_SUCCESS";
                 return SKILL_SUCCESS;
             }
             if (state == "failure") {
-                stateMachine.submitEvent("REQUEST_ACK");
+                stateMachine.submitEvent("get_status");
                 yCDebug(ACTIONEXAMPLE) << "request_ack returning SKILL_FAILURE";
                 return SKILL_FAILURE;
             }
@@ -84,14 +84,14 @@ SkillAck ActionExample::request_ack()
     }
 }
 
-void ActionExample::send_start()
+void ActionExample::start()
 {
-    yCTrace(ACTIONEXAMPLE) << "send_start";
-    stateMachine.submitEvent("CMD_START");
+    yCTrace(ACTIONEXAMPLE) << "start";
+    stateMachine.submitEvent("start");
 }
 
-void ActionExample::send_stop()
+void ActionExample::stop()
 {
-    yCTrace(ACTIONEXAMPLE) << "send_stop";
-    stateMachine.submitEvent("CMD_STOP",  QStateMachine::HighPriority);
+    yCTrace(ACTIONEXAMPLE) << "stop";
+    stateMachine.submitEvent("stop",  QStateMachine::HighPriority);
 }

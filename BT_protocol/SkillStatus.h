@@ -11,8 +11,8 @@
 // This is an automatically generated file.
 // It could get re-generated if the ALLOW_IDL_GENERATION flag is on.
 
-#ifndef YARP_THRIFT_GENERATOR_ENUM_SKILLACK_H
-#define YARP_THRIFT_GENERATOR_ENUM_SKILLACK_H
+#ifndef YARP_THRIFT_GENERATOR_ENUM_SKILLSTATUS_H
+#define YARP_THRIFT_GENERATOR_ENUM_SKILLSTATUS_H
 
 #include <yarp/os/Wire.h>
 #include <yarp/os/idl/WireTypes.h>
@@ -25,19 +25,17 @@
  *   its task;
  * - "SKILL_RUNNING" indicates that the node has successfully moved forward during this
  *   time step, but the task is not yet complete;
- * - "SKILL_IDLE" indicates that the node hasn't run yet.
+ * - "SKILL_IDLE" indicates that the node is waiting to be (re)executed.
  */
-enum SkillAck
+enum SkillStatus
 {
     SKILL_IDLE = 0,
     SKILL_RUNNING = 1,
     SKILL_SUCCESS = 2,
-    SKILL_FAILURE = 3,
-    SKILL_STARTED = 4,
-    SKILL_STOPPED = 5
+    SKILL_FAILURE = 3
 };
 
-class SkillAckVocab :
+class SkillStatusVocab :
         public yarp::os::idl::WireVocab
 {
 public:
@@ -45,4 +43,4 @@ public:
     std::string toString(int input) const override;
 };
 
-#endif // YARP_THRIFT_GENERATOR_ENUM_SKILLACK_H
+#endif // YARP_THRIFT_GENERATOR_ENUM_SKILLSTATUS_H
