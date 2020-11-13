@@ -5,5 +5,5 @@
 #                                                                              #
 ################################################################################
 
-add_subdirectory(skills)
+add_subdirectory(skills_interface)
 
