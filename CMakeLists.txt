@@ -16,9 +16,7 @@ find_package(BehaviorTree REQUIRED)
 
 find_package(YARP COMPONENTS os idl_tools dev REQUIRED)
 
-add_subdirectory(BT_protocol)
-
-#add_subdirectory(interfaces)
+add_subdirectory(interfaces)
 add_subdirectory(behavior_trees)
 add_subdirectory(skills)
 #add_subdirectory(components)
