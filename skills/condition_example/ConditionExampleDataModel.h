@@ -56,7 +56,7 @@ public:
 
     yarp::os::Network yarp;
 
-    bool is_true { false };
+    unsigned int counter { 0 };
     int index {0};
 
 };

@@ -12,13 +12,13 @@
         <qt:editorinfo scenegeometry="45.30;73.70;-14.70;23.70;120;100" geometry="45.30;73.70;-60;-50;120;100"/>
         <onentry>
             <log expr="&quot;Inside get&quot;"/>
-            <script>is_true = !is_true;
-              stateMachine()-&gt;submitEvent((is_true) ? &quot;STATUS_SUCCESS&quot; : &quot;STATUS_FAILED&quot;);</script>
+            <script>counter++;
+              stateMachine()-&gt;submitEvent((counter%2) ? &quot;is_even&quot; : &quot;is_odd&quot;);</script>
         </onentry>
-        <transition type="internal" event="STATUS_SUCCESS" target="success">
+        <transition type="internal" event="is_even" target="success">
             <qt:editorinfo movePoint="42.55;5.01"/>
         </transition>
-        <transition type="internal" event="STATUS_FAILED" target="failure">
+        <transition type="internal" event="is_odd" target="failure">
             <qt:editorinfo movePoint="-26.28;43.80"/>
         </transition>
     </state>
