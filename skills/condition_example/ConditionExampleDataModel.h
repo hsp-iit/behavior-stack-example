@@ -17,7 +17,7 @@
 #include <yarp/os/Network.h>
 #include <yarp/os/RpcClient.h>
 
- #include "Counter.h"
+ #include <Counter.h>
 
 
 struct Connector
