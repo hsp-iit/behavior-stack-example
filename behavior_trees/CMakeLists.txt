@@ -24,7 +24,7 @@ target_link_libraries(yarp_bt_nodes
     YARP::YARP_os
     YARP::YARP_init
     BehaviorTree::behaviortree_cpp_v3
-    BT_protocol)
+    skill_interface)
 
 # Create the BT executable
 add_executable(from_xml_example)
