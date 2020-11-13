@@ -8,17 +8,14 @@
 #include <yarp/os/Network.h>
 #include <yarp/os/RpcServer.h>
 
-#include <BatteryReader.h>
-#include <yarp/dev/PolyDriver.h>
-#include <yarp/dev/IBattery.h>
-
-using namespace yarp::dev;
-
+#include <Counter.h>
+#include <atomic>
 class SimpleCounter : public Counter
 {
 public:
     SimpleCounter() = default;
     bool open()
+    {
     
         this->yarp().attachAsServer(server_port);
         if (!server_port.open("/Components/SimpleCounter")) {
@@ -33,20 +30,34 @@ public:
     {
         server_port.close();
     }
-    int get_count() override
+
+
+    std::int32_t get_value() override
     {
         yWarning("get_counts called");
-        return count;
+        return value;
     }
 
-    void reset_counter() override
+    void increase() override
+    {
+        yWarning("increase called");
+        value++;
+    }
+
+    void decrease() override
+    {
+        yWarning("decrease called");
+        value--;
+    }
+
+    void reset() override
     {
         yWarning("reset_counter called");
-        count = 0;
+        value = 0;
     }
 
 private:
-    std::atomic<int> count{ 0 };
+    std::atomic<int32_t> value{ 0 };
     yarp::os::RpcServer server_port;
 };
 
@@ -68,3 +79,4 @@ int main()
 
     return 0;
 }
+

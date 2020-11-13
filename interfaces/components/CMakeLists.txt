@@ -7,14 +7,12 @@
 
 # Create the BT_protocol C++ Library
 add_library(counter_interface STATIC)
-#yarp_add_idl(IDL_GEN_FILES BT_wrappers.thrift)
+yarp_add_idl(IDL_GEN_FILES counter.thrift)
 target_sources(counter_interface
   PRIVATE
  # ${IDL_GEN_FILES}
-    Skill_request.cpp
-    Skill_request.h
-    SkillStatus.cpp
-    SkillStatus.h
+ Counter.cpp
+ Counter.h
 )
 target_include_directories(counter_interface
 #   INTERFACE

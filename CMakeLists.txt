@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
 
-project(qtscxml-tests LANGUAGES CXX)
+project(behavior-stack-example LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,4 +19,4 @@ find_package(YARP COMPONENTS os idl_tools dev REQUIRED)
 add_subdirectory(interfaces)
 add_subdirectory(behavior_trees)
 add_subdirectory(skills)
-#add_subdirectory(components)
+add_subdirectory(components)

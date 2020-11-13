@@ -6,6 +6,8 @@
  ******************************************************************************/
 
 service Counter {
-    int get_count();
-    void reset_counter();
+    i32 get_value();
+    void increase();    
+    void decrease();
+    void reset();
 }
