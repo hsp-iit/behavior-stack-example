@@ -35,4 +35,4 @@ target_link_libraries(ConditionExample
     Qt5::Scxml
     YARP::YARP_os
     YARP::YARP_init
-    BT_protocol)
+    skill_interface)

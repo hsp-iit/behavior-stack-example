@@ -5,6 +5,14 @@
 #                                                                              #
 ################################################################################
 
-add_subdirectory(skills_interface)
-add_subdirectory(components)
-
+ # Create the component (navigation client)
+add_executable(SimpleCounter)
+target_sources(SimpleCounter
+  PRIVATE
+    SimpleCounter.cpp)
+target_link_libraries(SimpleCounter
+  PRIVATE
+    counter_interface
+    YARP::YARP_os
+    YARP::YARP_init
+    YARP::YARP_dev)
