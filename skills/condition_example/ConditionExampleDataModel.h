@@ -17,7 +17,7 @@
 #include <yarp/os/Network.h>
 #include <yarp/os/RpcClient.h>
 
-// #include "BatteryReader.h"
+ #include "Counter.h"
 
 
 struct Connector
@@ -55,8 +55,10 @@ public:
     bool setup(const QVariantMap& initialDataValues) override;
 
     yarp::os::Network yarp;
+    yarp::os::RpcClient client_port;
+    Counter counter;
 
-    unsigned int counter { 0 };
+    unsigned int counter_value { 0 };
     int index {0};
 
 };
