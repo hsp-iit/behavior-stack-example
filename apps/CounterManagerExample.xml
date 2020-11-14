@@ -1,0 +1,29 @@
+<application>
+    <name>CounterManagerExample</name>
+    <description>Description</description>
+    <version>1.0</version>
+
+    <module>
+    <name>Groot</name>                     <!-- module/command name -->
+</module>
+
+
+<module>
+<name>SimpleCounter </name>                     <!-- module/command name -->
+</module>
+
+<module>
+<name>gammaray ConditionExample </name>                     <!-- module/command name -->
+</module>
+
+<module>
+<name>gammaray ActionExample </name>                     <!-- module/command name -->
+</module>
+
+<module>
+<name>from_xml_example</name>   <!-- module/command name -->
+<workdir>/home/mcolledanchise/software/behavior-stack-example/build/bin</workdir>
+</module>
+
+
+</application>
