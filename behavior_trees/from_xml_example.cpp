@@ -99,7 +99,7 @@ int main()
 
    // bt_factory.registerNodeType<FlipFlopCondition>("FlipFlopCondition");
 
-    BT::Tree tree = bt_factory.createTreeFromFile("./test_condition_BT.xml");
+    BT::Tree tree = bt_factory.createTreeFromFile("./test_action_BT.xml");
 
 
     // Create some logger
@@ -162,7 +162,7 @@ int main()
         port.write(msg);
 
         tree.root_node->executeTick();
-        std::this_thread::sleep_for (std::chrono::milliseconds(1000));
+        std::this_thread::sleep_for (std::chrono::milliseconds(100));
     }
 
     return 0;

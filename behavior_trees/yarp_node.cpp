@@ -73,7 +73,11 @@ NodeStatus YARPNode::tick()
 
     if(status == SKILL_IDLE)
     {
+        yDebug() << "Node" << name << "start";
+
       m_bt_request.start();
+      yDebug() << "Node" << name << "started";
+
       std::this_thread::sleep_for (std::chrono::milliseconds(100));
     }
     status = m_bt_request.get_status();

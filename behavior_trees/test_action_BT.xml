@@ -7,17 +7,8 @@
     <!-- ////////// -->
     <BehaviorTree ID="BehaviorTree">
         <ReactiveSequence>
-            <Condition ID="FlipFlopCondition"/>
-            <Action ID="YARPAction" name="GoTo" port_name="goTo"/>
+          <Condition ID="YARPCondition" name="ConditionExample"/>
+          <Action ID="YARPAction" name="ActionExample"/>
         </ReactiveSequence>
     </BehaviorTree>
-    <!-- ////////// -->
-    <TreeNodesModel>
-        <Condition ID="FlipFlopCondition"/>
-        <Action ID="YARPAction">
-            <input_port name="port_name" type="std::string"/>
-        </Action>
-    </TreeNodesModel>
-    <!-- ////////// -->
 </root>
-

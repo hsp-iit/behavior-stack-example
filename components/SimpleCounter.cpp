@@ -16,7 +16,7 @@ public:
     SimpleCounter() = default;
     bool open()
     {
-    
+
         this->yarp().attachAsServer(server_port);
         if (!server_port.open("/Components/SimpleCounter")) {
             yError("Could not open ");
@@ -34,25 +34,25 @@ public:
 
     std::int32_t get_value() override
     {
-        yWarning("get_counts called");
+        yWarning("get_counts() called. Value: %d", value.load());
         return value;
     }
 
     void increase() override
     {
-        yWarning("increase called");
+        yWarning("increase called(). New value: %d", value.load());
         value++;
     }
 
     void decrease() override
     {
-        yWarning("decrease called");
+        yWarning("decrease called. New value: %d", value.load());
         value--;
     }
 
     void reset() override
     {
-        yWarning("reset_counter called");
+        yWarning("reset_counter called. New value: %d", value.load());
         value = 0;
     }
 
@@ -79,4 +79,3 @@ int main()
 
     return 0;
 }
-

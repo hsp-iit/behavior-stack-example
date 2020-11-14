@@ -35,4 +35,5 @@ target_link_libraries(ActionExample
     Qt5::Scxml
     YARP::YARP_os
     YARP::YARP_init
-    skill_interface)
+    skill_interface
+    counter_interface)

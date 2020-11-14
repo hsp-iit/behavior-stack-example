@@ -14,7 +14,7 @@
             <log expr="&quot;Inside get&quot;"/>
             <script>
 				counter_value = counter.get_value();
-				stateMachine()-&gt;submitEvent((counter_value%2) ? &quot;is_even&quot; : &quot;is_odd&quot;);</script>
+				stateMachine()-&gt;submitEvent((counter_value != 10) ? &quot;is_even&quot; : &quot;is_odd&quot;);</script>
         </onentry>
         <transition type="internal" event="is_even" target="success">
             <qt:editorinfo movePoint="42.55;5.01"/>

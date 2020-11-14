@@ -17,6 +17,11 @@
 #include <yarp/os/Network.h>
 #include <yarp/os/RpcClient.h>
 
+#include <Counter.h>
+
+#include <chrono>
+#include <thread>
+
 // #include "BatteryReader.h"
 
 
@@ -55,7 +60,8 @@ public:
     bool setup(const QVariantMap& initialDataValues) override;
 
     yarp::os::Network yarp;
-
+    yarp::os::RpcClient client_port;
+    Counter counter;
     bool is_true { false };
     int index {0};
 

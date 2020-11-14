@@ -1,43 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" binding="early" xmlns:qt="http://www.qt.io/2015/02/scxml-ext" xmlns:scope="http://www.scope.org/scope" xmlns:scope_yarp="http://www.scope.org/scope_yarp" name="ActionExampleStateMachine" datamodel="cplusplus:ActionExampleDataModel:ActionExampleDataModel.h" scope:skill_version="0.1" qt:editorversion="4.11.0" initial="idle">
-    <qt:editorinfo initialGeometry="45.30;-198.76;-20;-20;40;40"/>
-    <state id="idle" scope:bt_status="SKILL_IDLE">
-        <qt:editorinfo scenegeometry="45.30;-97.51;-14.70;-147.51;120;100" geometry="45.30;-97.51;-60;-50;120;100"/>
-        <transition type="internal" event="start" target="get"/>
-        <onentry>
-            <log expr="&quot;Inside Idle&quot;"/>
-        </onentry>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" binding="early" xmlns:qt="http://www.qt.io/2015/02/scxml-ext" xmlns:scope="http://www.scope.org/scope" xmlns:scope_yarp="http://www.scope.org/scope_yarp" name="ActionExampleStateMachine" datamodel="cplusplus:ActionExampleDataModel:ActionExampleDataModel.h" scope:skill_version="0.1" qt:editorversion="4.11.0" initial="wrapper">
+    <qt:editorinfo initialGeometry="336.41;-28.77;-20;-20;40;40"/>
+    <state id="wrapper">
+        <qt:editorinfo geometry="17.66;300.13;-87.67;-353.89;325.30;429.49" scenegeometry="17.66;300.13;-70.01;-53.76;325.30;429.49"/>
+        <state id="read" scope:bt_status="SKILL_RUNNING">
+            <qt:editorinfo geometry="-7.67;4.34;-60;-50;120;100" scenegeometry="9.99;304.47;-50.01;254.47;120;100"/>
+            <onentry>
+                <log expr="&quot;Inside read&quot;"/>
+                <script>counter.get_value();
+                  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+                  stateMachine()-&gt;submitEvent("done");
+                </script>
+            </onentry>
+            <transition type="external" event="done" target="increase">
+                <qt:editorinfo movePoint="27.74;5.04"/>
+            </transition>
+        </state>
+        <initial>
+            <qt:editorinfo geometry="-7.67;-268.12;-20;-20;40;40" scenegeometry="9.99;32.01;-10.01;12.01;40;40"/>
+            <transition target="idle"/>
+        </initial>
+        <state id="increase" scope:bt_status="SKILL_RUNNING">
+            <qt:editorinfo geometry="157.63;5.60;-60;-50;120;100" scenegeometry="175.29;305.73;115.29;255.73;120;100"/>
+            <onentry>
+                <log expr="&quot;Inside increase&quot;"/>
+                <script>counter.increase();
+                  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+                  stateMachine()-&gt;submitEvent("done");
+                </script>
+            </onentry>
+            <transition type="external" event="done" target="increase">
+                <qt:editorinfo movePoint="23.96;13.87"/>
+            </transition>
+        </state>
+        <state id="idle" scope:bt_status="SKILL_IDLE">
+            <qt:editorinfo geometry="-7.67;-166.87;-60;-50;120;100" scenegeometry="9.99;133.26;-50.01;83.26;120;100"/>
+            <transition type="internal" event="start" target="increase"/>
+            <onentry>
+                <log expr="&quot;Inside Idle&quot;"/>
+            </onentry>
+        </state>
+        <transition type="external" event="stop" target="reset"/>
     </state>
-    <state id="get" scope:bt_status="SKILL_IDLE">
-        <qt:editorinfo scenegeometry="45.30;73.70;-14.70;23.70;120;100" geometry="45.30;73.70;-60;-50;120;100"/>
+    <state id="reset" scope:bt_status="SKILL_RUNNING">
+        <qt:editorinfo geometry="356.88;116.01;-60;-50;120;100" scenegeometry="356.88;116.01;296.88;66.01;120;100"/>
         <onentry>
-            <log expr="&quot;Inside get&quot;"/>
-            <script>is_true = !is_true;
-              stateMachine()-&gt;submitEvent((is_true) ? &quot;STATUS_SUCCESS&quot; : &quot;STATUS_FAILED&quot;);</script>
+            <log expr="&quot;Inside reset&quot;"/>
+            <script>counter.reset();
+              stateMachine()-&gt;submitEvent("done");
+            </script>
         </onentry>
-        <transition type="internal" event="STATUS_SUCCESS" target="success">
-            <qt:editorinfo movePoint="42.55;5.01"/>
+        <transition type="external" event="done" target="wrapper">
+            <qt:editorinfo startTargetFactors="8.54;33.65" endTargetFactors="68.30;22.92"/>
         </transition>
-        <transition type="internal" event="STATUS_FAILED" target="failure">
-            <qt:editorinfo movePoint="-26.28;43.80"/>
-        </transition>
-    </state>
-    <state id="success" scope:bt_status="SKILL_SUCCESS">
-        <qt:editorinfo scenegeometry="-117.38;212.79;-177.38;162.79;120;100" geometry="-117.38;212.79;-60;-50;120;100"/>
-        <transition type="internal" event="get_status" target="idle">
-            <qt:editorinfo movePoint="-21.27;-11.26"/>
-        </transition>
-        <onentry>
-            <log expr="&quot;Inside Success&quot;"/>
-        </onentry>
-    </state>
-    <state id="failure" scope:bt_status="SKILL_FAILURE">
-        <qt:editorinfo scenegeometry="230.48;212.79;170.48;162.79;120;100" geometry="230.48;212.79;-60;-50;120;100"/>
-        <transition type="internal" event="get_status" target="idle">
-            <qt:editorinfo localGeometry="-151.03;-235.49" movePoint="52.56;-37.54"/>
-        </transition>
-        <onentry>
-            <log expr="&quot;Inside Failure&quot;"/>
-        </onentry>
     </state>
 </scxml>

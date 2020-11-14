@@ -64,11 +64,11 @@ SkillStatus ActionExample::get_status()
                 yCDebug(ACTIONEXAMPLE) << "request_ack returning SKILL_IDLE";
                 return SKILL_IDLE;
             }
-            if (state == "get") {
-                stateMachine.submitEvent("get_status");
-                yCDebug(ACTIONEXAMPLE) << "request_ack returning SKILL_IDLE";
-                return SKILL_IDLE;
-            }
+            // if (state == "get") {
+            //     stateMachine.submitEvent("get_status");
+            //     yCDebug(ACTIONEXAMPLE) << "request_ack returning SKILL_IDLE";
+            //     return SKILL_IDLE;
+            // }
             if (state == "success") {
                 stateMachine.submitEvent("get_status");
                 yCDebug(ACTIONEXAMPLE) << "request_ack returning SKILL_SUCCESS";
@@ -79,6 +79,7 @@ SkillStatus ActionExample::get_status()
                 yCDebug(ACTIONEXAMPLE) << "request_ack returning SKILL_FAILURE";
                 return SKILL_FAILURE;
             }
+            return SKILL_RUNNING;
 
         }
     }
