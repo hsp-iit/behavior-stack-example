@@ -8,11 +8,11 @@
 add_subdirectory(lib)
 
 # Create the BT executable
-add_executable(from_xml_example)
-target_sources(from_xml_example
+add_executable(run_bt)
+target_sources(run_bt
   PRIVATE
-    from_xml_example.cpp)
-target_link_libraries(from_xml_example
+    run_bt.cpp)
+target_link_libraries(run_bt
   PRIVATE
     YARP::YARP_os
     YARP::YARP_init
