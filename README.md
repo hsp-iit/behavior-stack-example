@@ -83,11 +83,11 @@ go to the bin directory:
 
 and run the following executables:
 
-1. SimpleCounter
+1. `./simple_counter`
 
-2. ConditionExample
-3. ActionExample
-4. run_bt --from BT_example.xml
+2. `./condition_example`
+3. `./action_example`
+4. `run_bt --from ./BT_example.xml`
 
 
 
