@@ -20,4 +20,4 @@ target_link_libraries(from_xml_example
     yarp_bt_nodes
     pthread)
 
-file(COPY BT_example.xml DESTINATION "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}")
+file(COPY xmls/BT_example.xml DESTINATION "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}")
