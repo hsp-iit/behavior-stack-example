@@ -6,11 +6,11 @@
 ################################################################################
 
  # Create the component (navigation client)
-add_executable(SimpleCounter)
-target_sources(SimpleCounter
+add_executable(simple_counter)
+target_sources(simple_counter
   PRIVATE
     SimpleCounter.cpp)
-target_link_libraries(SimpleCounter
+target_link_libraries(simple_counter
   PRIVATE
     counter_interface
     YARP::YARP_os

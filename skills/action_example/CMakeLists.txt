@@ -8,13 +8,13 @@
 # Create the skill (state machine executable)
 
 
-add_executable(ActionExample)
-target_include_directories(ActionExample
+add_executable(action_example)
+target_include_directories(action_example
   PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
 )
-target_sources(ActionExample
+target_sources(action_example
   PRIVATE
     main.cpp
     ActionExample.cpp
@@ -26,11 +26,11 @@ target_sources(ActionExample
 qt5_add_statecharts(STATECHARTS_FILES ActionExampleStateMachine.scxml)
 set_source_files_properties(${CMAKE_CURRENT_BINARY_DIR}/ActionExampleStateMachine.cpp PROPERTIES SKIP_AUTOMOC TRUE)
 
-target_sources(ActionExample
+target_sources(action_example
   PRIVATE
     ${STATECHARTS_FILES})
 
-target_link_libraries(ActionExample
+target_link_libraries(action_example
   PRIVATE
     Qt5::Scxml
     YARP::YARP_os
