@@ -9,12 +9,12 @@
 add_library(yarp_bt_nodes STATIC)
 target_sources(yarp_bt_nodes
   PRIVATE
-    yarp_action.cpp
-    yarp_action.h
-    yarp_condition.cpp
-    yarp_condition.h
-    yarp_node.cpp
-    yarp_node.h)
+    src/yarp_action.cpp
+    src/yarp_action.h
+    src/yarp_condition.cpp
+    src/yarp_condition.h
+    src/yarp_node.cpp
+    src/yarp_node.h)
 target_include_directories(yarp_bt_nodes
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
