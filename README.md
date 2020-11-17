@@ -12,7 +12,7 @@ This example contains:
 
 **SimpleCounter**: A **component** that implements a counter. The counter has 2 [Remote Procedure Calls](https://www.yarp.it/git-master/rpc_ports.html) one to increase the counter and one to reset the counter.
 
-**ConditionExample:** A **skill** that when *starts* request to SimpleCounter its counter value and returns to the BT on a *success* state if the counter is equal to 10; it returns  a *failure* state otherwise.
+**ConditionExample:** A **skill** that when *starts* request to SimpleCounter its counter value and returns to the BT on a *success* state if the counter is different that to 10; it returns  a *failure* state otherwise.
 
 **ActionExample** A **skill** that when *starts* request to SimpleCounter to increase the counter by 1 every second. When the skill *stops*, it resets the counter.
 
