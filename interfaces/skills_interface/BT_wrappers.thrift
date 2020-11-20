@@ -20,18 +20,18 @@ enum SkillStatus {SKILL_IDLE, SKILL_RUNNING, SKILL_SUCCESS, SKILL_FAILURE}
 service Skill_request {
 
     /**
-     * get_status  Get the ack of the skill.
+     * get_status  Get the SkillStatus of the skill.
      *
      * return              The enum indicating the status of the skill.
      */
     SkillStatus get_status()
 
     /**
-     * start  Send a start request to the s skill.
+     * start  Starts skill.
      *
-     * return               void.
+     * return               bool. True if the function ended correctly, false otherwise.
      */
-    void start();
+    bool start();
 
     /**
      * stop  Send a stop request to the skill.

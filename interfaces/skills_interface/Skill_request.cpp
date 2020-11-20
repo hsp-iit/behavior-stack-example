@@ -69,10 +69,15 @@ public:
     explicit Skill_request_start_helper();
     bool write(yarp::os::ConnectionWriter& connection) const override;
     bool read(yarp::os::ConnectionReader& connection) override;
+
+    thread_local static bool s_return_helper;
 };
+
+thread_local bool Skill_request_start_helper::s_return_helper = {};
 
 Skill_request_start_helper::Skill_request_start_helper()
 {
+    s_return_helper = {};
 }
 
 bool Skill_request_start_helper::write(yarp::os::ConnectionWriter& connection) const
@@ -91,6 +96,10 @@ bool Skill_request_start_helper::read(yarp::os::ConnectionReader& connection)
 {
     yarp::os::idl::WireReader reader(connection);
     if (!reader.readListReturn()) {
+        return false;
+    }
+    if (!reader.readBool(s_return_helper)) {
+        reader.fail();
         return false;
     }
     return true;
@@ -146,13 +155,14 @@ SkillStatus Skill_request::get_status()
     return ok ? Skill_request_get_status_helper::s_return_helper : SkillStatus{};
 }
 
-void Skill_request::start()
+bool Skill_request::start()
 {
     Skill_request_start_helper helper{};
     if (!yarp().canWrite()) {
-        yError("Missing server method '%s'?", "void Skill_request::start()");
+        yError("Missing server method '%s'?", "bool Skill_request::start()");
     }
-    yarp().write(helper, helper);
+    bool ok = yarp().write(helper, helper);
+    return ok ? Skill_request_start_helper::s_return_helper : bool{};
 }
 
 void Skill_request::stop()
@@ -178,13 +188,13 @@ std::vector<std::string> Skill_request::help(const std::string& functionName)
     } else {
         if (functionName == "get_status") {
             helpString.emplace_back("SkillStatus get_status() ");
-            helpString.emplace_back("get_status  Get the ack of the skill. ");
+            helpString.emplace_back("get_status  Get the SkillStatus of the skill. ");
             helpString.emplace_back("return              The enum indicating the status of the skill. ");
         }
         if (functionName == "start") {
-            helpString.emplace_back("void start() ");
-            helpString.emplace_back("start  Send a start request to the s skill. ");
-            helpString.emplace_back("return               void. ");
+            helpString.emplace_back("bool start() ");
+            helpString.emplace_back("start  Starts skill. ");
+            helpString.emplace_back("return               bool. True if the function ended correctly, false otherwise. ");
         }
         if (functionName == "stop") {
             helpString.emplace_back("void stop() ");
@@ -235,10 +245,13 @@ bool Skill_request::read(yarp::os::ConnectionReader& connection)
             return true;
         }
         if (tag == "start") {
-            start();
+            Skill_request_start_helper::s_return_helper = start();
             yarp::os::idl::WireWriter writer(reader);
             if (!writer.isNull()) {
-                if (!writer.writeListHeader(0)) {
+                if (!writer.writeListHeader(1)) {
+                    return false;
+                }
+                if (!writer.writeBool(Skill_request_start_helper::s_return_helper)) {
                     return false;
                 }
             }

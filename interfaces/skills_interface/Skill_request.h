@@ -26,16 +26,16 @@ public:
     Skill_request();
 
     /**
-     * get_status  Get the ack of the skill.
+     * get_status  Get the SkillStatus of the skill.
      * return              The enum indicating the status of the skill.
      */
     virtual SkillStatus get_status();
 
     /**
-     * start  Send a start request to the s skill.
-     * return               void.
+     * start  Starts skill.
+     * return               bool. True if the function ended correctly, false otherwise.
      */
-    virtual void start();
+    virtual bool start();
 
     /**
      * stop  Send a stop request to the skill.

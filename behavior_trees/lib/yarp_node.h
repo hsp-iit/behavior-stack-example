@@ -23,19 +23,23 @@ class YARPNode //: public LeafNode
 {
 public:
     YARPNode(string name, string server_port_name, string carrier = "tcp"s);
-    NodeStatus tick();
-    NodeStatus status() const;
+    virtual NodeStatus tick() = 0;
+    NodeStatus skill_to_bt_status(SkillStatus status) const;
     bool init();
     string name;
 
     void set_carrier(std::string carrier);
-
+    //NodeStatus status() const;
 private:
-    string m_client_port_name;
+    string m_client_port_name_tick;
+    yarp::os::RpcClient m_rpc_client_tick;
+    // I need two different Skill_request client since the leaf node may request the get_status() while the skill is busy with replying to the start()
+    //mutable Skill_request m_bt_request_get_status; // mutable NodeStatus because status() is const. Actually, no longer used.
+protected:
     string m_server_port_name;
     string m_carrier;
-    yarp::os::RpcClient m_rpc_client;
-protected:
-    mutable Skill_request m_bt_request; // mutable because status() is const
+    Skill_request m_bt_request_start;
+
+
 
 };

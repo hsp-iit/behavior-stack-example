@@ -25,7 +25,7 @@ using namespace BT;
 
 YARPNode::YARPNode(string name, string server_port_name, string carrier) :
         name(name),
-        m_client_port_name("/"+name+"/BT_rpc/client"),
+        m_client_port_name_tick("/"+name+"/BT_rpc/client/tick"),
         m_server_port_name("/"+name+"/BT_rpc/server"),
         m_carrier(std::move(carrier))
 {
@@ -40,22 +40,21 @@ bool YARPNode::init()
 {
     yarp::os::Network yarp;
 
-    if (!m_rpc_client.open(m_client_port_name))
+    if (!m_rpc_client_tick.open(m_client_port_name_tick))
     {
-        yError() << "Could not open port " << m_client_port_name;
+        yError() << "Could not open port " << m_client_port_name_tick;
         return false;
     }
 
     yarp::os::Network::sync(m_server_port_name, false);
 
-    if (!yarp::os::Network::connect(m_client_port_name, m_server_port_name, m_carrier))
+    if (!yarp::os::Network::connect(m_client_port_name_tick, m_server_port_name, m_carrier))
     {
         yError() << "Could not connect to port " << m_server_port_name;
         return false;
     }
 
-
-    if (!m_bt_request.yarp().attachAsClient(m_rpc_client))
+    if (!m_bt_request_start.yarp().attachAsClient(m_rpc_client_tick))
     {
         yError() << "Could not attach as client to " << m_server_port_name;
         return false;
@@ -65,54 +64,18 @@ bool YARPNode::init()
     return true;
 }
 
-NodeStatus YARPNode::tick()
+//NodeStatus YARPNode::status() const
+//{
+//    yDebug() << "Node " << name << "requesting get_status";
+
+//    SkillStatus skill_status = m_bt_request_get_status.get_status();
+
+//    return skill_to_bt_status(skill_status);
+//}
+
+NodeStatus YARPNode::skill_to_bt_status(SkillStatus skill_status) const
 {
-
-    yDebug() << "Node" << name << "ticked";
-    SkillStatus status = m_bt_request.get_status();
-
-    if(status == SKILL_IDLE)
-    {
-        yDebug() << "Node" << name << "start";
-
-      m_bt_request.start();
-      yDebug() << "Node" << name << "started";
-
-      std::this_thread::sleep_for (std::chrono::milliseconds(100));
-    }
-    status = m_bt_request.get_status();
-    while(status == SKILL_IDLE)
-    {
-        status = m_bt_request.get_status();
-        std::this_thread::sleep_for (std::chrono::milliseconds(100));
-        yDebug() << "Node" << name  << " status " << int(status) << "WAITING";
-
-    }
-
-    switch (status) {
-    case SKILL_RUNNING:
-       yDebug() << "Node" << name << "returns running";
-        return NodeStatus::RUNNING;// may be two different enums (thrift and BT library). Making sure that the return status are the correct ones
-    case SKILL_SUCCESS:
-       yDebug() << "Node" << name << "returns success";
-        return NodeStatus::SUCCESS;
-    case SKILL_FAILURE:
-       yDebug() << "Node" << name << "returns failure";
-        return NodeStatus::FAILURE;
-    default:
-       yError() << "Invalid return status "<< status << "  received by node"   << name;
-        break;
-    }
-
-    return NodeStatus::RUNNING;
-}
-
-
-NodeStatus YARPNode::status() const
-{
-    yDebug() << "Node" << name << "getting status";
-    SkillStatus status = m_bt_request.get_status();
-    switch (status) {
+    switch (skill_status) {
     case SKILL_RUNNING:
        yDebug() << "Node" << name << "returns running";
         return NodeStatus::RUNNING;// may be two different enums (thrift and BT library). Making sure that the return status are the correct ones
@@ -123,7 +86,7 @@ NodeStatus YARPNode::status() const
        yDebug() << "Node" << name << "returns failure";
         return NodeStatus::FAILURE;
     case SKILL_IDLE:
-       yDebug() << "Node" << name << "returns failure";
+       yDebug() << "Node" << name << "returns idle";
         return NodeStatus::IDLE;
     default:
        yError() << "Invalid return status for received by node " << name;

@@ -10,7 +10,7 @@ add_library(skill_interface STATIC)
 #yarp_add_idl(IDL_GEN_FILES BT_wrappers.thrift)
 target_sources(skill_interface
   PRIVATE
- # ${IDL_GEN_FILES}
+#  ${IDL_GEN_FILES}
     Skill_request.cpp
     Skill_request.h
     SkillStatus.cpp

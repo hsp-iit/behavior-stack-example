@@ -14,7 +14,7 @@
 
 #include <yarp_node.h>
 #include <string>
-#include<behaviortree_cpp_v3/condition_node.h>
+#include <behaviortree_cpp_v3/condition_node.h>
 
 class YARPCondition :  public ConditionNode, public YARPNode
 {

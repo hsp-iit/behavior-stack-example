@@ -30,8 +30,8 @@ YARPCondition::YARPCondition(string name, const NodeConfiguration& config) :
 
 NodeStatus YARPCondition::tick()
 {
-    yDebug() << "Node" << YARPNode::name << "sending tick to skill";
-    return YARPNode::tick();
+    bool is_ok = m_bt_request_start.start();
+    return (is_ok ? NodeStatus::SUCCESS : NodeStatus::FAILURE);
 }
 
 PortsList YARPCondition::providedPorts()
