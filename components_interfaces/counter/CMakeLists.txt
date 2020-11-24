@@ -5,23 +5,21 @@
 #                                                                              #
 ################################################################################
 
-# Create the yarp_bt_nodes library
-add_library(yarp_bt_nodes STATIC)
-target_sources(yarp_bt_nodes
+# Create the BT_protocol C++ Library
+add_library(counter_interface STATIC)
+#yarp_add_idl(IDL_GEN_FILES counter.thrift)
+target_sources(counter_interface
   PRIVATE
-    yarp_action.cpp
-    yarp_action.h
-    yarp_condition.cpp
-    yarp_condition.h
-    yarp_node.cpp
-    yarp_node.h)
-target_include_directories(yarp_bt_nodes
+ # ${IDL_GEN_FILES}
+ Counter.cpp
+ Counter.h
+)
+target_include_directories(counter_interface
+#   INTERFACE
+#     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
-target_link_libraries(yarp_bt_nodes
-  PUBLIC
-    YARP::YARP_os
-    YARP::YARP_init
-    BT::behaviortree_cpp_v3
-    skill_interface)
+target_link_libraries(counter_interface
+  PRIVATE
+    YARP::YARP_os)

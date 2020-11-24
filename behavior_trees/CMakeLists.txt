@@ -5,7 +5,6 @@
 #                                                                              #
 ################################################################################
 
-add_subdirectory(lib)
 
 # Create the BT executable
 add_executable(run_bt)
