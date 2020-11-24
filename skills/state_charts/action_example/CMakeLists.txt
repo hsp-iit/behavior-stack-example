@@ -17,8 +17,6 @@ target_include_directories(state_chart_action_example
 target_sources(state_chart_action_example
   PRIVATE
     main.cpp
-    ActionExample.cpp
-    ActionExample.h
     ActionExampleDataModel.cpp
     ActionExampleDataModel.h
 )

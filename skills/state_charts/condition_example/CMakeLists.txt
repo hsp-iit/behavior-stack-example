@@ -33,6 +33,5 @@ target_link_libraries(state_chart_condition_example
     Qt5::Scxml
     YARP::YARP_os
     YARP::YARP_init
-    skill_interface
     counter_interface
     sc_skill)

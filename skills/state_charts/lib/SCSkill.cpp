@@ -95,7 +95,7 @@ bool SCSkill::start()
 void SCSkill::stop()
 {
     yCTrace(CONDITIONEXAMPLE) << "stop";
-  //  stateMachine.submitEvent("stop",  QStateMachine::HighPriority);
-//    stateMachine.stop();
+   stateMachine->submitEvent("stop",  QStateMachine::HighPriority);
+   stateMachine->stop();
 
 }
