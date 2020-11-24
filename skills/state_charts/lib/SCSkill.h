@@ -11,26 +11,26 @@
 
 #include <yarp/os/RpcServer.h>
 #include <yarp/os/Network.h>
+#include <QScxmlStateMachine>
+#include <QtScxml/qscxmldatamodel.h>//#include "ConditionExampleStateMachine.h"
+//#include "ConditionExampleDataModel.h"
 
-#include "ConditionExampleStateMachine.h"
-#include "ConditionExampleDataModel.h"
-
-class ConditionExample:
+class SCSkill:
         public Skill_request
 {
 public:
-    ConditionExample(std::string name );
+    SCSkill(std::string name, QScxmlStateMachine* sm, QScxmlDataModel* model);
 
     bool execute();
 
     SkillStatus get_status() override;
-    void start() override;
+    bool start() override;
     void stop() override;
 
 private:
-    std::string name;
+    std::string m_name;
     yarp::os::Network yarpnet;
     yarp::os::RpcServer port;
-    ConditionExampleDataModel dataModel;
-    ConditionExampleStateMachine stateMachine;
+    //ConditionExampleDataModel dataModel;
+    QScxmlStateMachine* stateMachine;
 };

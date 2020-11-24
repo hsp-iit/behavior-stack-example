@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" binding="early" xmlns:qt="http://www.qt.io/2015/02/scxml-ext" xmlns:scope="http://www.scope.org/scope" xmlns:scope_yarp="http://www.scope.org/scope_yarp" name="ConditionExampleStateMachine" datamodel="cplusplus:ConditionExampleDataModel:ConditionExampleDataModel.h" scope:skill_version="0.1" qt:editorversion="4.11.0" initial="idle">
+<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" binding="early" xmlns:qt="http://www.qt.io/2015/02/scxml-ext" xmlns:scope="http://www.scope.org/scope" xmlns:scope_yarp="http://www.scope.org/scope_yarp" name="ConditionExampleStateMachine" datamodel="cplusplus:ConditionExampleDataModel:ConditionExampleDataModel.h" scope:skill_version="0.1" qt:editorversion="4.11.0" initial="get">
     <qt:editorinfo initialGeometry="45.30;-198.76;-20;-20;40;40"/>
-    <state id="idle" scope:bt_status="SKILL_IDLE">
-        <qt:editorinfo scenegeometry="45.30;-97.51;-14.70;-147.51;120;100" geometry="45.30;-97.51;-60;-50;120;100"/>
-        <transition type="internal" event="start" target="get"/>
-        <onentry>
-            <log expr="&quot;Inside Idle&quot;"/>
-        </onentry>
-    </state>
     <state id="get" scope:bt_status="SKILL_IDLE">
         <qt:editorinfo scenegeometry="45.30;73.70;-14.70;23.70;120;100" geometry="45.30;73.70;-60;-50;120;100"/>
         <onentry>
@@ -25,18 +18,13 @@
     </state>
     <state id="success" scope:bt_status="SKILL_SUCCESS">
         <qt:editorinfo scenegeometry="-117.38;212.79;-177.38;162.79;120;100" geometry="-117.38;212.79;-60;-50;120;100"/>
-        <transition type="internal" event="get_status" target="idle">
-            <qt:editorinfo movePoint="-21.27;-11.26"/>
-        </transition>
         <onentry>
             <log expr="&quot;Inside Success&quot;"/>
         </onentry>
     </state>
     <state id="failure" scope:bt_status="SKILL_FAILURE">
         <qt:editorinfo scenegeometry="230.48;212.79;170.48;162.79;120;100" geometry="230.48;212.79;-60;-50;120;100"/>
-        <transition type="internal" event="get_status" target="idle">
-            <qt:editorinfo localGeometry="-158.60;-239.27" movePoint="52.56;-37.54"/>
-        </transition>
+
         <onentry>
             <log expr="&quot;Inside Failure&quot;"/>
         </onentry>

@@ -23,5 +23,5 @@ target_link_libraries(yarp_bt_nodes
   PUBLIC
     YARP::YARP_os
     YARP::YARP_init
-    BehaviorTree::behaviortree_cpp_v3
+    BT::behaviortree_cpp_v3
     skill_interface)

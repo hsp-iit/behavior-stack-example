@@ -60,14 +60,14 @@ int main(int argc, char *argv[])
 #ifdef ZMQ_FOUND
     PublisherZMQ publisher_zmq(tree);
 #endif
-    printTreeRecursively(tree.root_node);
+    printTreeRecursively(tree.rootNode());
 
     vector<TreeNode::Ptr> all_nodes_prt = tree.nodes;
 
 
     while(true)
     {
-        tree.root_node->executeTick();
+        tree.rootNode()->executeTick();
         std::this_thread::sleep_for (std::chrono::milliseconds(100));
     }
 

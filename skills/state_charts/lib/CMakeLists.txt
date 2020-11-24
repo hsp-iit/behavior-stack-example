@@ -5,20 +5,20 @@
 #                                                                              #
 ################################################################################
 
-
-add_executable(rf_module_action_example)
-target_include_directories(rf_module_action_example
+# Create the sc_skill library
+add_library(sc_skill STATIC)
+target_sources(sc_skill
   PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_CURRENT_BINARY_DIR}
+SCSkill.cpp
+SCSkill.h
 )
-target_sources(rf_module_action_example
-  PRIVATE
-    main.cpp
-)
-
-target_link_libraries(rf_module_action_example
-  PRIVATE
+target_include_directories(sc_skill
+  PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+target_link_libraries(sc_skill
+  PUBLIC
+  Qt5::Scxml
     YARP::YARP_os
     YARP::YARP_init
     skill_interface

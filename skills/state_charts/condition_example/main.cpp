@@ -5,11 +5,13 @@
  *                                                                            *
  ******************************************************************************/
 
-#include "ConditionExample.h"
 
 #include <QCoreApplication>
 #include <QCommandLineParser>
 #include <yarp/os/ResourceFinder.h>
+#include <SCSkill.h>
+#include "ConditionExampleDataModel.h"
+#include "ConditionExampleStateMachine.h"
 
 int main(int argc, char **argv)
 {
@@ -17,7 +19,9 @@ int main(int argc, char **argv)
     QCoreApplication::setApplicationName("ConditionExample");
     QCoreApplication::setApplicationVersion("0.1");
 
-    ConditionExample bt("ConditionExample");
+    ConditionExampleDataModel model;
+    ConditionExampleStateMachine sm;
+    SCSkill bt("ConditionExample", &sm, &model);
     if (!bt.execute()) {
         return 1;
     }

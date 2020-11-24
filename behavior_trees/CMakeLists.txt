@@ -16,7 +16,7 @@ target_link_libraries(run_bt
   PRIVATE
     YARP::YARP_os
     YARP::YARP_init
-    BehaviorTree::behaviortree_cpp_v3
+    BT::behaviortree_cpp_v3
     yarp_bt_nodes
     pthread)
 

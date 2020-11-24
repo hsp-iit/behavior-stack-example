@@ -24,7 +24,7 @@ public:
     bool execute();
 
     SkillStatus get_status() override;
-    void start() override;
+    bool start() override;
     void stop() override;
 
 private:

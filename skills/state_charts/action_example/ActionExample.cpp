@@ -48,7 +48,7 @@ bool ActionExample::execute()
         return false;
     }
 
-    stateMachine.start();
+    //stateMachine.start();
 
     return true;
 }
@@ -60,7 +60,7 @@ SkillStatus ActionExample::get_status()
     while (true) {
         for (const auto& state : stateMachine.activeStateNames()) {
             if (state == "idle") {
-                stateMachine.submitEvent("get_status");
+          //      stateMachine.submitEvent("get_status");
                 yCDebug(ACTIONEXAMPLE) << "request_ack returning SKILL_IDLE";
                 return SKILL_IDLE;
             }
@@ -70,12 +70,12 @@ SkillStatus ActionExample::get_status()
             //     return SKILL_IDLE;
             // }
             if (state == "success") {
-                stateMachine.submitEvent("get_status");
+              //  stateMachine.submitEvent("get_status");
                 yCDebug(ACTIONEXAMPLE) << "request_ack returning SKILL_SUCCESS";
                 return SKILL_SUCCESS;
             }
             if (state == "failure") {
-                stateMachine.submitEvent("get_status");
+              //  stateMachine.submitEvent("get_status");
                 yCDebug(ACTIONEXAMPLE) << "request_ack returning SKILL_FAILURE";
                 return SKILL_FAILURE;
             }
@@ -85,14 +85,24 @@ SkillStatus ActionExample::get_status()
     }
 }
 
-void ActionExample::start()
+bool ActionExample::start()
 {
     yCTrace(ACTIONEXAMPLE) << "start";
-    stateMachine.submitEvent("start");
-}
+
+    //stateMachine.submitEvent("start");
+    stateMachine.start();
+    SkillStatus current_status = get_status();
+    while (current_status !=SKILL_FAILURE && current_status !=SKILL_SUCCESS) {
+      current_status = get_status();
+      std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+    return current_status == SKILL_SUCCESS;
+
+  }
 
 void ActionExample::stop()
 {
     yCTrace(ACTIONEXAMPLE) << "stop";
     stateMachine.submitEvent("stop",  QStateMachine::HighPriority);
+    stateMachine.stop();
 }

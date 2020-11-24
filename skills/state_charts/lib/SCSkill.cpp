@@ -5,7 +5,7 @@
  *                                                                            *
  ******************************************************************************/
 
-#include "ConditionExample.h"
+#include "SCSkill.h"
 
 #include <yarp/os/LogComponent.h>
 #include <yarp/os/LogStream.h>
@@ -14,10 +14,13 @@
 #include <QDebug>
 #include <QTime>
 #include <QStateMachine>
+#include <QtScxml/qscxmldatamodel.h>
+#include <chrono>
+#include <thread>
 
 namespace {
 YARP_LOG_COMPONENT(CONDITIONEXAMPLE,
-                   "scope.skill.ConditionExample",
+                   "scope.skill.SCSkill",
                    yarp::os::Log::minimumPrintLevel(),
                    yarp::os::Log::LogTypeReserved,
                    yarp::os::Log::printCallback(),
@@ -25,20 +28,20 @@ YARP_LOG_COMPONENT(CONDITIONEXAMPLE,
 }
 
 
-ConditionExample::ConditionExample(std::string name ) :
-        name(std::move(name))
+SCSkill::SCSkill(std::string name, QScxmlStateMachine* sm, QScxmlDataModel* model ) :
+        m_name(name), stateMachine(sm)
 {
-    stateMachine.setDataModel(&dataModel);
+  stateMachine->setDataModel(model);
 }
 
-bool ConditionExample::execute()
+bool SCSkill::execute()
 {
     if (!yarp::os::NetworkBase::checkNetwork()) {
         qWarning("Error! YARP Network is not initialized");
         return false;
     }
 
-    if (!port.open("/" + name + "/BT_rpc/server")) {
+    if (!port.open("/" + m_name + "/BT_rpc/server")) {
         qWarning("Error! Cannot open YARP port");
         return false;
     }
@@ -48,50 +51,51 @@ bool ConditionExample::execute()
         return false;
     }
 
-    stateMachine.start();
+    //stateMachine.start();
 
     return true;
 }
 
-SkillStatus ConditionExample::get_status()
+SkillStatus SCSkill::get_status()
 {
     yCTrace(CONDITIONEXAMPLE) << "get_status";
 
     while (true) {
-        for (const auto& state : stateMachine.activeStateNames()) {
-            if (state == "idle") {
-                stateMachine.submitEvent("get_status");
-                yCDebug(CONDITIONEXAMPLE) << "get_status returning SKILL_IDLE";
-                return SKILL_IDLE;
-            }
-            if (state == "get") {
-                stateMachine.submitEvent("get_status");
-                yCDebug(CONDITIONEXAMPLE) << "get_status returning SKILL_IDLE";
-                return SKILL_IDLE;
-            }
+        for (const auto& state : stateMachine->activeStateNames()) {
             if (state == "success") {
-                stateMachine.submitEvent("get_status");
+                //stateMachine.submitEvent("get_status");
                 yCDebug(CONDITIONEXAMPLE) << "get_status returning SKILL_SUCCESS";
                 return SKILL_SUCCESS;
             }
             if (state == "failure") {
-                stateMachine.submitEvent("get_status");
+                //stateMachine.submitEvent("get_status");
                 yCDebug(CONDITIONEXAMPLE) << "get_status returning SKILL_FAILURE";
                 return SKILL_FAILURE;
             }
-
-        }
+       }
     }
 }
 
-void ConditionExample::start()
+bool SCSkill::start()
 {
     yCTrace(CONDITIONEXAMPLE) << "start";
-    stateMachine.submitEvent("start");
+    stateMachine->submitEvent("start");
+    stateMachine->start();
+
+    //wait until a final state is reached
+
+    SkillStatus current_status = get_status();
+    while (current_status !=SKILL_FAILURE && current_status !=SKILL_SUCCESS) {
+      current_status = get_status();
+      std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+    return current_status == SKILL_SUCCESS;
 }
 
-void ConditionExample::stop()
+void SCSkill::stop()
 {
     yCTrace(CONDITIONEXAMPLE) << "stop";
-    stateMachine.submitEvent("stop",  QStateMachine::HighPriority);
+  //  stateMachine.submitEvent("stop",  QStateMachine::HighPriority);
+//    stateMachine.stop();
+
 }

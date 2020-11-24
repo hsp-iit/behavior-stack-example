@@ -6,22 +6,18 @@
 ################################################################################
 
 
-add_executable(condition_example)
-target_include_directories(condition_example
+add_executable(rf_module_condition_example)
+target_include_directories(rf_module_condition_example
   PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
 )
-target_sources(condition_example
+target_sources(rf_module_condition_example
   PRIVATE
     main.cpp
 )
 
-target_sources(condition_example
-  PRIVATE
-    ${STATECHARTS_FILES})
-
-target_link_libraries(condition_example
+target_link_libraries(rf_module_condition_example
   PRIVATE
     YARP::YARP_os
     YARP::YARP_init
