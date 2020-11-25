@@ -15,13 +15,13 @@
  int main(int argc, char **argv)
  {
    QCoreApplication app(argc, argv);
-     QCoreApplication::setApplicationName("ActionExample");
+     QCoreApplication::setApplicationName("SCActionExample");
      QCoreApplication::setApplicationVersion("0.1");
 
      ActionExampleDataModel model;
      ActionExampleStateMachine sm;
-     SCSkill bt("ActionExample", &sm, &model);
-     if (!bt.execute()) {
+     SCSkill skill("SCActionExample", &sm, &model);
+     if (!skill.execute()) {
          return 1;
      }
 

@@ -100,7 +100,7 @@ int main(int argc, char * argv[])
     yarp::os::Network yarp;
 
     // create your module
-    ConditionExample module("ConditionExample");
+    ConditionExample module("RFConditionExample");
 
     // prepare and configure the resource finder
     yarp::os::ResourceFinder rf;

@@ -106,7 +106,7 @@ int main(int argc, char * argv[])
     yarp::os::Network yarp;
 
     // create your module
-    ActionExample module("ActionExample");
+    ActionExample module("RFActionExample");
 
     // prepare and configure the resource finder
     yarp::os::ResourceFinder rf;

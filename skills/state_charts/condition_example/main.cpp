@@ -16,13 +16,13 @@
 int main(int argc, char **argv)
 {
   QCoreApplication app(argc, argv);
-    QCoreApplication::setApplicationName("ConditionExample");
+    QCoreApplication::setApplicationName("SCConditionExample");
     QCoreApplication::setApplicationVersion("0.1");
 
     ConditionExampleDataModel model;
     ConditionExampleStateMachine sm;
-    SCSkill bt("ConditionExample", &sm, &model);
-    if (!bt.execute()) {
+    SCSkill skill("SCConditionExample", &sm, &model);
+    if (!skill.execute()) {
         return 1;
     }
 
