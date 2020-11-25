@@ -5,21 +5,22 @@
 #                                                                              #
 ################################################################################
 
-add_subdirectory(custom_leaf_nodes)
+# Create the custom_leaf_nodes library
+add_library(custom_leaf_nodes STATIC)
+target_sources(custom_leaf_nodes
+  PRIVATE
+  action_example.cpp
+  action_example.h
+  condition_example.cpp
+  condition_example.h
+)
 
-# Create the BT executable
-add_executable(run_bt)
-target_sources(run_bt
-  PRIVATE
-    run_bt.cpp
-    )
-target_link_libraries(run_bt
-  PRIVATE
-    YARP::YARP_os
-    YARP::YARP_init
+target_include_directories(custom_leaf_nodes
+  PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+
+target_link_libraries(custom_leaf_nodes
+  PUBLIC
     BT::behaviortree_cpp_v3
-    yarp_bt_nodes
-    custom_leaf_nodes
-    pthread)
-
-file(COPY xmls/BT_example.xml DESTINATION "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}")
+    )

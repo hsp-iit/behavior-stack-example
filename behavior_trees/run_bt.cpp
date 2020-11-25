@@ -26,6 +26,9 @@
 #include <behaviortree_cpp_v3/loggers/bt_minitrace_logger.h>
 #include <behaviortree_cpp_v3/loggers/bt_file_logger.h>
 
+#include <action_example.h>
+#include <condition_example.h>
+
 #include <yarp/os/Network.h>
 #include <yarp/os/Port.h>
 #include <yarp/os/ResourceFinder.h>
@@ -48,6 +51,9 @@ int main(int argc, char *argv[])
     BehaviorTreeFactory bt_factory;
     bt_factory.registerNodeType<YARPAction>("YARPAction");
     bt_factory.registerNodeType<YARPCondition>("YARPCondition");
+
+    bt_factory.registerNodeType<ActionExample>("ActionExample");
+    bt_factory.registerNodeType<ConditionExample>("ConditionExample");
 
     BT::Tree tree = bt_factory.createTreeFromFile(fileName);
 

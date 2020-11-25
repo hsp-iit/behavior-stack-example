@@ -5,21 +5,21 @@
 #                                                                              #
 ################################################################################
 
-add_subdirectory(custom_leaf_nodes)
-
-# Create the BT executable
-add_executable(run_bt)
-target_sources(run_bt
+# Create the sc_skill library
+add_library(sc_skill STATIC)
+target_sources(sc_skill
   PRIVATE
-    run_bt.cpp
-    )
-target_link_libraries(run_bt
-  PRIVATE
+SCSkill.cpp
+SCSkill.h
+)
+target_include_directories(sc_skill
+  PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+target_link_libraries(sc_skill
+  PUBLIC
+  Qt5::Scxml
     YARP::YARP_os
     YARP::YARP_init
-    BT::behaviortree_cpp_v3
-    yarp_bt_nodes
-    custom_leaf_nodes
-    pthread)
-
-file(COPY xmls/BT_example.xml DESTINATION "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}")
+    skill_interface
+    )
