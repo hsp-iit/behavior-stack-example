@@ -1,23 +1,41 @@
 # behavior-stack-example
 
-**TBD** description of Task, Skill and Components
+Repository containing a simple example of the Behavior Stack
 
+The stack is partitioned into different layers of abstractions, each addressing different concerns; the separation of the layers allows level-specific efficient solutions. The number and separation of the layers are the subject of controversial discussions; in this example we use the abstraction layers defined by the [RobMoSys Robotic Software Component](robmosys.eu/wiki/start)
+Following the abstraction above, we categorize the robotic software in:
 
+- **Task Layer**, the layer where we design how the robot accomplishes a goal, disregarding the implementation details. In this example, it describes the a Behavior Tree (BT).
 
-Repository containing a simple example of the Behavior Stack.
+- **Skill Layer** , the layer where we design the basic capabilities of a robot (e.g. grasp an object); It describes the implementation of a leaf node of a BT that that can run in mainly two fashions with respect to the BT engine:
+
+  - In the same executable, where the source code of the skill is written inside a leaf node of the BT engine that implements the *Tick()* and (for actions) the *Halt()* methods.
+
+  - -In a separate executable, where the source code of the skill is written in a separate program that exposes the interface for calling
+    the *Tick()* and (for actions) the *Halt()* methods. Over the network. A leaf node of the BT engine forwards the calls to the corresponding executable.
+  
+  A middleware usually handles these calls over the network.
+      
+  
+- **Service Layer**, the layer that contains system-level entities that serve as the access point for the skills to command the robot (e.g. move mobile base destination, read sensor input); It described the server side of a service called by a skill to perform its basic capability (e.g. get battery level). 
 
 This example contains:
 
-**run_bt**: An executable that runs a BT.
+**run_bt**: An executable that runs a Behavior Tree (a **task**).
 
-**SimpleCounter**: A **component** that implements a counter. The counter has 2 [Remote Procedure Calls](https://www.yarp.it/git-master/rpc_ports.html) one to increase the counter and one to reset the counter.
-
-**ConditionExample:** A **skill** that when *starts* request to SimpleCounter its counter value and returns to the BT on a *success* state if the counter is different that to 10; it returns  a *failure* state otherwise.
+**SimpleCounter**: An executable that implements a counter and exposed 3 **services**, implemented as  [YARP Remote Procedure Calls](https://www.yarp.it/git-master/rpc_ports.html): one to increase, one to decrease, and one to reset the counter.
 
 **ActionExample** A **skill** that when *starts* request to SimpleCounter to increase the counter by 1 every second. When the skill *stops*, it resets the counter.
 
-**UNDER CONSTRUCTION**
+**ConditionExample:** A **skill** that when *starts* request to SimpleCounter its counter value and returns to the BT on a *success* state if the counter is lower than 10; it returns  a *failure* state otherwise.
 
+The skills **ActionExample** and **ConditionExample** are implemented in three ways:
+
+- As leaf nodes in the BT (In the same executable of the BT).
+
+- As YARP RF Modules (in a separate executable).
+
+- As State Charts, using the QtSCXML engine (in a separate executable).
 
 ## Dependencies
 
@@ -77,7 +95,47 @@ Clone and compile this library:
 
 `make`
 
-go to the bin directory:
+
+
+### Execute the examples
+
+#### Example with skills as Leaf nodes
+
+Go to the bin directory:
+
+`cd bin`
+
+and run the following executables:
+
+1. `./simple_counter`
+2. `./leaf_node_condition_example`
+3. `./leaf_node_action_example`
+4. `./run_bt --from ./BT_leaf_nodes_example.xml`
+
+If you have Groot installed, execute it in "Monitor Mode" and then click "Connect" to see the execution of the BT, as in the figure below
+
+**TBD**
+
+#### Example with skills as RFModules
+
+Go to the bin directory:
+
+`cd bin`
+
+and run the following executables:
+
+1. `./simple_counter`
+2. `./rf_module_condition_example`
+3. `./rf_module_action_example`
+4. `./run_bt --from ./BT_state_chart_example.xml`
+
+If you have Groot installed, execute it in "Monitor Mode" and then click "Connect" to see the execution of the BT, as in the figure below
+
+**TBD**
+
+#### Example with skills as State Charts
+
+Go to the bin directory:
 
 `cd bin`
 
@@ -85,19 +143,19 @@ and run the following executables:
 
 1. `./simple_counter`
 
-2. `./condition_example`
-3. `./action_example`
-4. `run_bt --from ./BT_example.xml`
+2. `./state_chart_condition_example`
 
+3. `./state_chart_action_example`
 
+4. `./run_bt --from ./BT_state_charts_example.xml`
+
+   
 
 if you have GammaRay installed, run the executables 2. e 3. as:
 
-`gammaray ConditionExample`
+`gammaray ./state_charts_condition_example`
 
-`gammaray ActionExample`
-
-
+`gammaray ./state_charts_action_example`
 
 and then select the tab "StateMachine" to see the execution of the skill, as in the figure below:
 
@@ -105,13 +163,7 @@ and then select the tab "StateMachine" to see the execution of the skill, as in 
 
 If you have Groot installed, execute it in "Monitor Mode" and then click "Connect" to see the execution of the BT, as in the figure below
 
-
-
 **TBD**
-
-
-
-
 
 
 
