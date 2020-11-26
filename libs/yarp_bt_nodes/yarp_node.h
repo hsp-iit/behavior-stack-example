@@ -27,6 +27,7 @@ public:
     NodeStatus skill_to_bt_status(SkillStatus status) const;
     bool init();
     string name;
+    static PortsList providedPorts();
 
     void set_carrier(std::string carrier);
     //NodeStatus status() const;

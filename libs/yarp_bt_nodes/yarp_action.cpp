@@ -86,13 +86,6 @@ NodeStatus YARPAction::tick()
     return NodeStatus::SUCCESS;
 }
 
-PortsList YARPAction::providedPorts()
-{
-    // This action has a 2 input ports ("port_name" and "carrier")
-    // Any port must have a name. The type is optional.
-    return { InputPort<std::string>("port_name"),
-                InputPort<std::string>("carrier") };
-}
 
 void YARPAction::halt()
 {

@@ -24,7 +24,6 @@ public:
     YARPAction(string name, const NodeConfiguration &config);
     void halt() override;
     NodeStatus tick() override;
-    static PortsList providedPorts();
     bool init();
 private:
     std::future<NodeStatus> m_thread_start_handle;

@@ -13,11 +13,11 @@ Following the abstraction above, we categorize the robotic software in:
 
   - -In a separate executable, where the source code of the skill is written in a separate program that exposes the interface for calling
     the *Tick()* and (for actions) the *Halt()* methods. Over the network. A leaf node of the BT engine forwards the calls to the corresponding executable.
-  
+
   A middleware usually handles these calls over the network.
-      
-  
-- **Service Layer**, the layer that contains system-level entities that serve as the access point for the skills to command the robot (e.g. move mobile base destination, read sensor input); It described the server side of a service called by a skill to perform its basic capability (e.g. get battery level). 
+
+
+- **Service Layer**, the layer that contains system-level entities that serve as the access point for the skills to command the robot (e.g. move mobile base destination, read sensor input); It described the server side of a service called by a skill to perform its basic capability (e.g. get battery level).
 
 This example contains:
 
@@ -39,8 +39,8 @@ The skills **ActionExample** and **ConditionExample** are implemented in three w
 
 ## Dependencies
 
-- [YARP](https://www.yarp.it/) 
-- [BehaviorTree.cpp](https://github.com/BehaviorTree/BehaviorTree.CPP/) 
+- [YARP](https://www.yarp.it/)
+- [BehaviorTree.cpp](https://github.com/BehaviorTree/BehaviorTree.CPP/)
 - [Groot](https://github.com/BehaviorTree/Groot/) (For behavior trees visualization, optional)
 - [GammaRay](https://www.kdab.com/development-resources/qt-tools/gammaray/) (State Chart visualization, optional)
 
@@ -74,7 +74,7 @@ Install Dependencies:
 
 - **Groot**: Follow the instructions [here](https://github.com/BehaviorTree/Groot/).
 
-- **GammaRay:** 
+- **GammaRay:**
 
   add the following ppa :
 
@@ -87,7 +87,7 @@ Install Dependencies:
 
 Clone and compile this library:
 
-`git clone https://github.com/hsp-iit/behavior-stack-example` 
+`git clone https://github.com/hsp-iit/behavior-stack-example`
 
 `mkdir build;cd build`
 
@@ -108,13 +108,13 @@ Go to the bin directory:
 and run the following executables:
 
 1. `./simple_counter`
-2. `./leaf_node_condition_example`
-3. `./leaf_node_action_example`
-4. `./run_bt --from ./BT_leaf_nodes_example.xml`
+2. `./run_bt --from ./BT_leaf_nodes_example.xml`
 
 If you have Groot installed, execute it in "Monitor Mode" and then click "Connect" to see the execution of the BT, as in the figure below
 
-**TBD**
+
+![leaf-nodes-BT](https://user-images.githubusercontent.com/8132627/100381717-dde4b100-3019-11eb-9725-0a2412d21562.png)
+
 
 #### Example with skills as RFModules
 
@@ -131,8 +131,7 @@ and run the following executables:
 
 If you have Groot installed, execute it in "Monitor Mode" and then click "Connect" to see the execution of the BT, as in the figure below
 
-**TBD**
-
+![rf-BT](https://user-images.githubusercontent.com/8132627/100381737-e9d07300-3019-11eb-8c7c-d73ddf99152a.png)
 #### Example with skills as State Charts
 
 Go to the bin directory:
@@ -149,7 +148,7 @@ and run the following executables:
 
 4. `./run_bt --from ./BT_state_charts_example.xml`
 
-   
+
 
 if you have GammaRay installed, run the executables 2. e 3. as:
 
@@ -159,23 +158,8 @@ if you have GammaRay installed, run the executables 2. e 3. as:
 
 and then select the tab "StateMachine" to see the execution of the skill, as in the figure below:
 
-**TBD**
+![gammaray](https://user-images.githubusercontent.com/8132627/100381715-dd4c1a80-3019-11eb-955b-01f2631e4076.png)
 
 If you have Groot installed, execute it in "Monitor Mode" and then click "Connect" to see the execution of the BT, as in the figure below
 
-**TBD**
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![SC-BT](https://user-images.githubusercontent.com/8132627/100381718-de7d4780-3019-11eb-8373-cc5e0a791b0c.png)

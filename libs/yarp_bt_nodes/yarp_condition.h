@@ -22,5 +22,4 @@ public:
     YARPCondition(string name, const NodeConfiguration& config);
     NodeStatus tick() override;
 
-    static PortsList providedPorts();
 };

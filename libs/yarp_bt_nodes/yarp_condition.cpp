@@ -33,11 +33,3 @@ NodeStatus YARPCondition::tick()
     bool is_ok = m_bt_request_start.start();
     return (is_ok ? NodeStatus::SUCCESS : NodeStatus::FAILURE);
 }
-
-PortsList YARPCondition::providedPorts()
-{
-    // This action has a 2 input ports ("port_name" and "carrier")
-    // Any port must have a name. The type is optional.
-    return { InputPort<std::string>("port_name"),
-             InputPort<std::string>("carrier") };
-}

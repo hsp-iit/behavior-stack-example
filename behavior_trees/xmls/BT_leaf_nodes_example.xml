@@ -7,18 +7,8 @@
     <!-- ////////// -->
     <BehaviorTree ID="BehaviorTree">
         <ReactiveSequence>
-          <ReactiveFallback>
            <Condition ID="ConditionExample" name="CustomConditionExample"/>
            <Action ID="ActionExample" name="CustomActionExample"/>
-        </ReactiveFallback>
-        <ReactiveFallback>
-         <Condition ID="YARPCondition" name="RFConditionExample"/>
-         <Action ID="YARPAction" name="RFActionExample"/>
-      </ReactiveFallback>
-      <ReactiveFallback>
-       <Condition ID="YARPCondition" name="SCConditionExample"/>
-       <Action ID="YARPAction" name="SCActionExample"/>
-    </ReactiveFallback>
         </ReactiveSequence>
     </BehaviorTree>
 </root>

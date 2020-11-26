@@ -73,6 +73,13 @@ bool YARPNode::init()
 //    return skill_to_bt_status(skill_status);
 //}
 
+PortsList YARPNode::providedPorts()
+{
+    // This action has a 2 input ports ("port_name" and "carrier")
+    // Any port must have a name. The type is optional.
+    return {};
+}
+
 NodeStatus YARPNode::skill_to_bt_status(SkillStatus skill_status) const
 {
     switch (skill_status) {

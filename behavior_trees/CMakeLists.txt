@@ -22,4 +22,6 @@ target_link_libraries(run_bt
     custom_leaf_nodes
     pthread)
 
-file(COPY xmls/BT_example.xml DESTINATION "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}")
+    file(COPY xmls/BT_leaf_nodes_example.xml DESTINATION "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}")
+    file(COPY xmls/BT_state_charts_example.xml DESTINATION "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}")
+    file(COPY xmls/BT_rf_modules_example.xml DESTINATION "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}")
