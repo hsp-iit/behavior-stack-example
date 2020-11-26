@@ -149,16 +149,15 @@ and run the following executables:
 4. `./run_bt --from ./BT_state_charts_example.xml`
 
 
-
 if you have GammaRay installed, run the executables 2. e 3. as:
 
 `gammaray ./state_charts_condition_example`
 
 `gammaray ./state_charts_action_example`
 
-and then select the tab "StateMachine" to see the execution of the skill, as in the figure below:
+and then select the tab "State Machine" to see the execution of the skill, as in the figure below:
 
-![gammaray](https://user-images.githubusercontent.com/8132627/100381715-dd4c1a80-3019-11eb-955b-01f2631e4076.png)
+![gammaray](https://user-images.githubusercontent.com/8132627/100381949-78dd8b00-301a-11eb-9cd8-db05f27387ab.png)
 
 If you have Groot installed, execute it in "Monitor Mode" and then click "Connect" to see the execution of the BT, as in the figure below
 
