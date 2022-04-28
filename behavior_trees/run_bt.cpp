@@ -73,8 +73,8 @@ int main(int argc, char *argv[])
 
     while(true)
     {
-        tree.rootNode()->executeTick();
-        std::this_thread::sleep_for (std::chrono::milliseconds(100));
+            tree.tickRoot();
+            std::this_thread::sleep_for (std::chrono::milliseconds(100));
     }
 
     return 0;
