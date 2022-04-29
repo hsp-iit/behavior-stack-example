@@ -52,13 +52,20 @@ The skills **ActionExample** and **ConditionExample** are implemented in three w
 
 Install Dependencies:
 
-- **YARP**: Follow the instructions [here](http://yarp.it/git-master/install.html).
+- **YARP**: More information  [here](http://yarp.it/git-master/install.html).
+
+  `sudo apt-get install cmake libace-dev`
+
+  `git clone -b v3.6.0 https://github.com/robotology/yarp`
+
+  `cd yarp && mkdir build && cd build && cmake .. && make`
+
+  `sudo make install`  # Optional **NOTE! this installs the library system wide**
 
 - **Behavior Tree.cpp**: (use a specific commit) run :
 
-  `git clone https://github.com/BehaviorTree/BehaviorTree.CPP.git`
+  `git clone -b 3.6.1  https://github.com/BehaviorTree/BehaviorTree.CPP.git`
 
-  `git checkout 5e8e2da2d93139fdf5f5d188e6dedf4e8180cf15 `
 
   Then install the library:
 
@@ -70,7 +77,7 @@ Install Dependencies:
 
   `make`
 
-  `sudo make install` **WARNING! this installs the library system wide**
+  `sudo make install` **NOTE! this installs the library system wide**
 
 - **Groot**: Follow the instructions [here](https://github.com/BehaviorTree/Groot/).
 
