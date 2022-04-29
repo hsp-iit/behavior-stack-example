@@ -134,7 +134,7 @@ and run the following executables:
 1. `./simple_counter`
 2. `./rf_module_condition_example`
 3. `./rf_module_action_example`
-4. `./run_bt --from ./BT_state_chart_example.xml`
+4. `./run_bt --from ./BT_rf_modules_example.xml`
 
 If you have Groot installed, execute it in "Monitor Mode" and then click "Connect" to see the execution of the BT, as in the figure below
 
