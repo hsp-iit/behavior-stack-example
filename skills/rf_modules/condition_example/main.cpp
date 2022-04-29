@@ -33,8 +33,7 @@ public:
         {
             m_counter = 0;
         }
-        //yInfo() << "ConditionExample Server Skill Running";
-        yInfo() << "Counter Value" << m_counter;
+//        yInfo() << "Counter Value" << m_counter;
         return true;
     }
 
