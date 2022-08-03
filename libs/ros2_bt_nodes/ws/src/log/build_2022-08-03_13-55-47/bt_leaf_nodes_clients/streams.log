@@ -1,0 +1,47 @@
+[0.055s] Invoking command in '/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/build/bt_leaf_nodes_clients': AMENT_PREFIX_PATH=/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/build/bt_leaf_nodes_clients -- -j8 -l8
+[0.083s] [35m[1mConsolidate compiler generated dependencies of target BT_node_client[0m
+[0.091s] [ 50%] Built target bt_node_client
+[0.097s] [ 75%] [32mBuilding CXX object CMakeFiles/BT_node_client.dir/src/bt_leaf_node_client.cpp.o[0m
+[2.538s] [01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:[m[K In member function ‘[01m[Kvoid BT_leaf_nodes_servers::BTNodeClient::feedback_callback(rclcpp_action::ClientGoalHandle<bt_leaf_nodes_interfaces::action::BT>::SharedPtr, std::shared_ptr<const bt_leaf_nodes_interfaces::action::BT_Feedback_<std::allocator<void> > >)[m[K’:
+[2.538s] [01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:78:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kbegin[m[K’ was not declared in this scope; did you mean ‘[01m[Kstd::begin[m[K’?
+[2.538s]    78 |     for (auto number : feedback->[01;31m[Kcurrent_return_status[m[K) {
+[2.538s]       |                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[2.539s]       |                                  [32m[Kstd::begin[m[K
+[2.539s] In file included from [01m[K/usr/include/c++/11/array:41[m[K,
+[2.539s]                  from [01m[K/usr/include/c++/11/tuple:39[m[K,
+[2.539s]                  from [01m[K/usr/include/c++/11/functional:54[m[K,
+[2.539s]                  from [01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:1[m[K:
+[2.539s] [01m[K/usr/include/c++/11/bits/range_access.h:108:37:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::begin[m[K’ declared here
+[2.539s]   108 |   template<typename _Tp> const _Tp* [01;36m[Kbegin[m[K(const valarray<_Tp>&) noexcept;
+[2.539s]       |                                     [01;36m[K^~~~~[m[K
+[2.539s] [01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:78:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kend[m[K’ was not declared in this scope; did you mean ‘[01m[Kstd::end[m[K’?
+[2.539s]    78 |     for (auto number : feedback->[01;31m[Kcurrent_return_status[m[K) {
+[2.539s]       |                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[2.540s]       |                                  [32m[Kstd::end[m[K
+[2.540s] In file included from [01m[K/usr/include/c++/11/array:41[m[K,
+[2.540s]                  from [01m[K/usr/include/c++/11/tuple:39[m[K,
+[2.540s]                  from [01m[K/usr/include/c++/11/functional:54[m[K,
+[2.540s]                  from [01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:1[m[K:
+[2.540s] [01m[K/usr/include/c++/11/bits/range_access.h:110:37:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::end[m[K’ declared here
+[2.540s]   110 |   template<typename _Tp> const _Tp* [01;36m[Kend[m[K(const valarray<_Tp>&) noexcept;
+[2.540s]       |                                     [01;36m[K^~~[m[K
+[2.546s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+[2.546s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+[2.546s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:23[m[K,
+[2.546s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+[2.546s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[2.546s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[2.546s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[2.546s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[2.546s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[2.546s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[2.546s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[2.546s]                  from [01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:9[m[K:
+[2.546s] [01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:[m[K In member function ‘[01m[Kvoid BT_leaf_nodes_servers::BTNodeClient::result_callback(const rclcpp_action::ClientGoalHandle<bt_leaf_nodes_interfaces::action::BT>::WrappedResult&)[m[K’:
+[2.546s] [01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:103:37:[m[K [01;31m[Kerror: [m[K‘[01m[Kss[m[K’ was not declared in this scope
+[2.547s]   103 |     RCLCPP_INFO(this->get_logger(), [01;31m[Kss[m[K.str().c_str());
+[2.547s]       |                                     [01;31m[K^~[m[K
+[3.367s] gmake[2]: *** [CMakeFiles/BT_node_client.dir/build.make:76: CMakeFiles/BT_node_client.dir/src/bt_leaf_node_client.cpp.o] Error 1
+[3.368s] gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/BT_node_client.dir/all] Error 2
+[3.368s] gmake: *** [Makefile:146: all] Error 2
+[3.370s] Invoked command in '/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/build/bt_leaf_nodes_clients' returned '2': AMENT_PREFIX_PATH=/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/build/bt_leaf_nodes_clients -- -j8 -l8

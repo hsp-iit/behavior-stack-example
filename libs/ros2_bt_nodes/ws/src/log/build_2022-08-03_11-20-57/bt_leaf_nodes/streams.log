@@ -1,0 +1,20 @@
+[0.019s] Invoking command in '/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/build/bt_leaf_nodes': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/build/bt_leaf_nodes -- -j8 -l8
+[0.045s] Invoked command in '/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/build/bt_leaf_nodes' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/build/bt_leaf_nodes -- -j8 -l8
+[0.063s] Invoking command in '/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/build/bt_leaf_nodes': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/build/bt_leaf_nodes
+[0.069s] -- Install configuration: ""
+[0.069s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/ament_index/resource_index/package_run_dependencies/bt_leaf_nodes
+[0.070s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/ament_index/resource_index/parent_prefix_path/bt_leaf_nodes
+[0.070s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/bt_leaf_nodes/environment/ament_prefix_path.sh
+[0.070s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/bt_leaf_nodes/environment/ament_prefix_path.dsv
+[0.070s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/bt_leaf_nodes/environment/path.sh
+[0.070s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/bt_leaf_nodes/environment/path.dsv
+[0.070s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/bt_leaf_nodes/local_setup.bash
+[0.070s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/bt_leaf_nodes/local_setup.sh
+[0.070s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/bt_leaf_nodes/local_setup.zsh
+[0.071s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/bt_leaf_nodes/local_setup.dsv
+[0.071s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/bt_leaf_nodes/package.dsv
+[0.071s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/ament_index/resource_index/packages/bt_leaf_nodes
+[0.071s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/bt_leaf_nodes/cmake/bt_leaf_nodesConfig.cmake
+[0.072s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/bt_leaf_nodes/cmake/bt_leaf_nodesConfig-version.cmake
+[0.072s] -- Up-to-date: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes/share/bt_leaf_nodes/package.xml
+[0.073s] Invoked command in '/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/build/bt_leaf_nodes' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/build/bt_leaf_nodes

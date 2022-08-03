@@ -1,0 +1,4 @@
+source;share/bt_leaf_nodes/local_setup.bash
+source;share/bt_leaf_nodes/local_setup.dsv
+source;share/bt_leaf_nodes/local_setup.sh
+source;share/bt_leaf_nodes/local_setup.zsh

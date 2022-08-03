@@ -1,0 +1,3 @@
+[35m[1mConsolidate compiler generated dependencies of target bt_node_server[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/BT_node_server.dir/src/bt_action_node_server.cpp.o[0m
+[ 75%] Built target bt_node_server

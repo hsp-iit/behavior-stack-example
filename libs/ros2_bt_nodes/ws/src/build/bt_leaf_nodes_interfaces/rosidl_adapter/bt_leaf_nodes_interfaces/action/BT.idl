@@ -1,0 +1,24 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from bt_leaf_nodes_interfaces/action/BT.action
+// generated code does not contain a copyright notice
+
+
+module bt_leaf_nodes_interfaces {
+  module action {
+    struct BT_Goal {
+      @verbatim (language="comment", text=
+        "Request (tick or halt)")
+      int32 command;
+    };
+    struct BT_Result {
+      @verbatim (language="comment", text=
+        "Result (running, success, failure)")
+      int32 final_return_status;
+    };
+    struct BT_Feedback {
+      @verbatim (language="comment", text=
+        "Feedback (running, success, failure)")
+      int32 current_return_status;
+    };
+  };
+};

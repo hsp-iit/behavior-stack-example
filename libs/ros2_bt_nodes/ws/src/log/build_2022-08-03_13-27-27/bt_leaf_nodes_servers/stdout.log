@@ -1,0 +1,4 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/BT_node_server.dir/src/bt_action_node_server.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/bt_node_server.dir/rclcpp_components/node_main_bt_node_server.cpp.o[0m
+[ 75%] [32m[1mLinking CXX executable bt_node_server[0m
+[ 75%] Built target bt_node_server

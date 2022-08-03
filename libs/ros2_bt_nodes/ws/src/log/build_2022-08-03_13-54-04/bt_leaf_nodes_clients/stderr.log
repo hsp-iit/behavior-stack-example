@@ -1,0 +1,11 @@
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:[m[K In member function ‘[01m[Kvoid BT_leaf_nodes_servers::BTNodeClient::feedback_callback(rclcpp_action::ClientGoalHandle<bt_leaf_nodes_interfaces::action::BT>::SharedPtr, std::shared_ptr<const bt_leaf_nodes_interfaces::action::BT_Feedback_<std::allocator<void> > >)[m[K’:
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:78:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = const struct bt_leaf_nodes_interfaces::action::BT_Feedback_<std::allocator<void> >[m[K’ {aka ‘[01m[Kconst struct bt_leaf_nodes_interfaces::action::BT_Feedback_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kpartial_sequence[m[K’
+   78 |     for (auto number : feedback->[01;31m[Kpartial_sequence[m[K) {
+      |                                  [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:[m[K In member function ‘[01m[Kvoid BT_leaf_nodes_servers::BTNodeClient::result_callback(const rclcpp_action::ClientGoalHandle<bt_leaf_nodes_interfaces::action::BT>::WrappedResult&)[m[K’:
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:101:39:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = struct bt_leaf_nodes_interfaces::action::BT_Result_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct bt_leaf_nodes_interfaces::action::BT_Result_<std::allocator<void> >[m[K’} has no member named ‘[01m[Ksequence[m[K’
+  101 |     for (auto number : result.result->[01;31m[Ksequence[m[K) {
+      |                                       [01;31m[K^~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/BT_node_client.dir/build.make:76: CMakeFiles/BT_node_client.dir/src/bt_leaf_node_client.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/BT_node_client.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

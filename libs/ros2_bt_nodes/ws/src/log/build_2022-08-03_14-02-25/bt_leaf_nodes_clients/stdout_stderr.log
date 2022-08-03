@@ -1,0 +1,31 @@
+[ 25%] [32mBuilding CXX object CMakeFiles/bt_node_client.dir/rclcpp_components/node_main_bt_node_client.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/BT_node_client.dir/src/bt_leaf_node_client.cpp.o[0m
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:[m[K In member function ‘[01m[Kvoid BT_leaf_nodes_clients::BTNodeClient::feedback_callback(rclcpp_action::ClientGoalHandle<bt_leaf_nodes_interfaces::action::BT>::SharedPtr, std::shared_ptr<const bt_leaf_nodes_interfaces::action::BT_Feedback_<std::allocator<void> > >)[m[K’:
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:74:47:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kfeedback[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   74 |     [01;35m[Kconst std::shared_ptr<const BT::Feedback> feedback[m[K)
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~[m[K
+[ 75%] [32m[1mLinking CXX executable bt_node_client[0m
+[ 75%] Built target bt_node_client
+[100%] [32m[1mLinking CXX shared library libBT_node_client.so[0m
+[100%] Built target BT_node_client
+-- Install configuration: ""
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/lib/bt_leaf_nodes_clients/bt_node_client
+-- Set runtime path of "/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/lib/bt_leaf_nodes_clients/bt_node_client" to ""
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/lib/libBT_node_client.so
+-- Set runtime path of "/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/lib/libBT_node_client.so" to ""
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/ament_index/resource_index/package_run_dependencies/bt_leaf_nodes_clients
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/ament_index/resource_index/parent_prefix_path/bt_leaf_nodes_clients
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/bt_leaf_nodes_clients/environment/ament_prefix_path.sh
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/bt_leaf_nodes_clients/environment/ament_prefix_path.dsv
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/bt_leaf_nodes_clients/environment/path.sh
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/bt_leaf_nodes_clients/environment/path.dsv
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/bt_leaf_nodes_clients/local_setup.bash
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/bt_leaf_nodes_clients/local_setup.sh
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/bt_leaf_nodes_clients/local_setup.zsh
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/bt_leaf_nodes_clients/local_setup.dsv
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/bt_leaf_nodes_clients/package.dsv
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/ament_index/resource_index/packages/bt_leaf_nodes_clients
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/ament_index/resource_index/rclcpp_components/bt_leaf_nodes_clients
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/bt_leaf_nodes_clients/cmake/bt_leaf_nodes_clientsConfig.cmake
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/bt_leaf_nodes_clients/cmake/bt_leaf_nodes_clientsConfig-version.cmake
+-- Installing: /home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/install/bt_leaf_nodes_clients/share/bt_leaf_nodes_clients/package.xml

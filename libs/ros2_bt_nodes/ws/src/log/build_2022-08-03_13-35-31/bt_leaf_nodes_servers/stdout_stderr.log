@@ -1,0 +1,93 @@
+[ 25%] [32mBuilding CXX object CMakeFiles/BT_node_server.dir/src/bt_action_node_server.cpp.o[0m
+[ 75%] Built target bt_node_server
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:20:3:[m[K [01;31m[Kerror: [m[K‘[01m[KBT_LEAF_NODES_SERVERS_PUBLIC[m[K’ does not name a type
+   20 |   [01;31m[KBT_LEAF_NODES_SERVERS_PUBLIC[m[K
+      |   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:23[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:6[m[K:
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:[m[K In member function ‘[01m[Krclcpp_action::GoalResponse BT_leaf_nodes_servers::BTNodeServer::handle_goal(const GoalUUID&, std::shared_ptr<const bt_leaf_nodes_interfaces::action::BT_Goal_<std::allocator<void> > >)[m[K’:
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:41:82:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = const struct bt_leaf_nodes_interfaces::action::BT_Goal_<std::allocator<void> >[m[K’ {aka ‘[01m[Kconst struct bt_leaf_nodes_interfaces::action::BT_Goal_<std::allocator<void> >[m[K’} has no member named ‘[01m[Korder[m[K’
+   41 |     RCLCPP_INFO(this->get_logger(), "Received goal request with order %d", goal->[01;31m[Korder[m[K);
+      |                                                                                  [01;31m[K^~~~~[m[K
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:[m[K In member function ‘[01m[Kvoid BT_leaf_nodes_servers::BTNodeServer::execute(std::shared_ptr<bt_leaf_nodes_interfaces::action::BT>)[m[K’:
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:65:36:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = struct bt_leaf_nodes_interfaces::action::BT[m[K’ {aka ‘[01m[Kstruct bt_leaf_nodes_interfaces::action::BT[m[K’} has no member named ‘[01m[Kget_goal[m[K’
+   65 |     const auto goal = goal_handle->[01;31m[Kget_goal[m[K();
+      |                                    [01;31m[K^~~~~~~~[m[K
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:67:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = struct bt_leaf_nodes_interfaces::action::BT_Feedback_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct bt_leaf_nodes_interfaces::action::BT_Feedback_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kpartial_sequence[m[K’
+   67 |     auto & sequence = feedback->[01;31m[Kpartial_sequence[m[K;
+      |                                 [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:74:24:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = struct bt_leaf_nodes_interfaces::action::BT[m[K’ {aka ‘[01m[Kstruct bt_leaf_nodes_interfaces::action::BT[m[K’} has no member named ‘[01m[Kis_canceling[m[K’
+   74 |       if (goal_handle->[01;31m[Kis_canceling[m[K()) {
+      |                        [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:75:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = struct bt_leaf_nodes_interfaces::action::BT_Result_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct bt_leaf_nodes_interfaces::action::BT_Result_<std::allocator<void> >[m[K’} has no member named ‘[01m[Ksequence[m[K’
+   75 |         result->[01;31m[Ksequence[m[K = sequence;
+      |                 [01;31m[K^~~~~~~~[m[K
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:76:22:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = struct bt_leaf_nodes_interfaces::action::BT[m[K’ {aka ‘[01m[Kstruct bt_leaf_nodes_interfaces::action::BT[m[K’} has no member named ‘[01m[Kcanceled[m[K’
+   76 |         goal_handle->[01;31m[Kcanceled[m[K(result);
+      |                      [01;31m[K^~~~~~~~[m[K
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:83:20:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = struct bt_leaf_nodes_interfaces::action::BT[m[K’ {aka ‘[01m[Kstruct bt_leaf_nodes_interfaces::action::BT[m[K’} has no member named ‘[01m[Kpublish_feedback[m[K’
+   83 |       goal_handle->[01;31m[Kpublish_feedback[m[K(feedback);
+      |                    [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:91:15:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = struct bt_leaf_nodes_interfaces::action::BT_Result_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct bt_leaf_nodes_interfaces::action::BT_Result_<std::allocator<void> >[m[K’} has no member named ‘[01m[Ksequence[m[K’
+   91 |       result->[01;31m[Ksequence[m[K = sequence;
+      |               [01;31m[K^~~~~~~~[m[K
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:92:20:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = struct bt_leaf_nodes_interfaces::action::BT[m[K’ {aka ‘[01m[Kstruct bt_leaf_nodes_interfaces::action::BT[m[K’} has no member named ‘[01m[Ksucceed[m[K’
+   92 |       goal_handle->[01;31m[Ksucceed[m[K(result);
+      |                    [01;31m[K^~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/thread:43[m[K,
+                 from [01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:3[m[K:
+/usr/include/c++/11/bits/std_thread.h: In instantiation of ‘[01m[Kstd::thread::thread(_Callable&&, _Args&& ...) [with _Callable = std::_Bind<void (BT_leaf_nodes_servers::BTNodeServer::*(BT_leaf_nodes_servers::BTNodeServer*, std::_Placeholder<1>))(std::shared_ptr<bt_leaf_nodes_interfaces::action::BT>)>; _Args = {const std::shared_ptr<rclcpp_action::ServerGoalHandle<bt_leaf_nodes_interfaces::action::BT> >&}; <template-parameter-1-3> = void][m[K’:
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:58:73:[m[K   required from here
+[01m[K/usr/include/c++/11/bits/std_thread.h:130:72:[m[K [01;31m[Kerror: [m[Kstatic assertion failed: std::thread arguments must be invocable after conversion to rvalues
+  130 |                                       typename decay<_Args>::type...>::[01;31m[Kvalue[m[K,
+      |                                                                        [01;31m[K^~~~~[m[K
+[01m[K/usr/include/c++/11/bits/std_thread.h:130:72:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::integral_constant<bool, false>::value[m[K’ evaluates to false
+/usr/include/c++/11/bits/std_thread.h: In instantiation of ‘[01m[Kstruct std::thread::_Invoker<std::tuple<std::_Bind<void (BT_leaf_nodes_servers::BTNodeServer::*(BT_leaf_nodes_servers::BTNodeServer*, std::_Placeholder<1>))(std::shared_ptr<bt_leaf_nodes_interfaces::action::BT>)>, std::shared_ptr<rclcpp_action::ServerGoalHandle<bt_leaf_nodes_interfaces::action::BT> > > >[m[K’:
+[01m[K/usr/include/c++/11/bits/std_thread.h:203:13:[m[K   required from ‘[01m[Kstruct std::thread::_State_impl<std::thread::_Invoker<std::tuple<std::_Bind<void (BT_leaf_nodes_servers::BTNodeServer::*(BT_leaf_nodes_servers::BTNodeServer*, std::_Placeholder<1>))(std::shared_ptr<bt_leaf_nodes_interfaces::action::BT>)>, std::shared_ptr<rclcpp_action::ServerGoalHandle<bt_leaf_nodes_interfaces::action::BT> > > > >[m[K’
+[01m[K/usr/include/c++/11/bits/std_thread.h:143:29:[m[K   required from ‘[01m[Kstd::thread::thread(_Callable&&, _Args&& ...) [with _Callable = std::_Bind<void (BT_leaf_nodes_servers::BTNodeServer::*(BT_leaf_nodes_servers::BTNodeServer*, std::_Placeholder<1>))(std::shared_ptr<bt_leaf_nodes_interfaces::action::BT>)>; _Args = {const std::shared_ptr<rclcpp_action::ServerGoalHandle<bt_leaf_nodes_interfaces::action::BT> >&}; <template-parameter-1-3> = void][m[K’
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:58:73:[m[K   required from here
+[01m[K/usr/include/c++/11/bits/std_thread.h:252:11:[m[K [01;31m[Kerror: [m[Kno type named ‘[01m[Ktype[m[K’ in ‘[01m[Kstruct std::thread::_Invoker<std::tuple<std::_Bind<void (BT_leaf_nodes_servers::BTNodeServer::*(BT_leaf_nodes_servers::BTNodeServer*, std::_Placeholder<1>))(std::shared_ptr<bt_leaf_nodes_interfaces::action::BT>)>, std::shared_ptr<rclcpp_action::ServerGoalHandle<bt_leaf_nodes_interfaces::action::BT> > > >::__result<std::tuple<std::_Bind<void (BT_leaf_nodes_servers::BTNodeServer::*(BT_leaf_nodes_servers::BTNodeServer*, std::_Placeholder<1>))(std::shared_ptr<bt_leaf_nodes_interfaces::action::BT>)>, std::shared_ptr<rclcpp_action::ServerGoalHandle<bt_leaf_nodes_interfaces::action::BT> > > >[m[K’
+  252 |           [01;31m[K_M_invoke[m[K(_Index_tuple<_Ind...>)
+      |           [01;31m[K^~~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/std_thread.h:256:9:[m[K [01;31m[Kerror: [m[Kno type named ‘[01m[Ktype[m[K’ in ‘[01m[Kstruct std::thread::_Invoker<std::tuple<std::_Bind<void (BT_leaf_nodes_servers::BTNodeServer::*(BT_leaf_nodes_servers::BTNodeServer*, std::_Placeholder<1>))(std::shared_ptr<bt_leaf_nodes_interfaces::action::BT>)>, std::shared_ptr<rclcpp_action::ServerGoalHandle<bt_leaf_nodes_interfaces::action::BT> > > >::__result<std::tuple<std::_Bind<void (BT_leaf_nodes_servers::BTNodeServer::*(BT_leaf_nodes_servers::BTNodeServer*, std::_Placeholder<1>))(std::shared_ptr<bt_leaf_nodes_interfaces::action::BT>)>, std::shared_ptr<rclcpp_action::ServerGoalHandle<bt_leaf_nodes_interfaces::action::BT> > > >[m[K’
+  256 |         [01;31m[Koperator[m[K()()
+      |         [01;31m[K^~~~~~~~[m[K
+In file included from [01m[K/usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:33[m[K,
+                 from [01m[K/usr/include/c++/11/bits/allocator.h:46[m[K,
+                 from [01m[K/usr/include/c++/11/unordered_map:40[m[K,
+                 from [01m[K/usr/include/c++/11/functional:61[m[K,
+                 from [01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:1[m[K:
+/usr/include/c++/11/ext/new_allocator.h: In instantiation of ‘[01m[Kvoid __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = BT_leaf_nodes_servers::BTNodeServer; _Args = {const rclcpp::NodeOptions&}; _Tp = BT_leaf_nodes_servers::BTNodeServer][m[K’:
+[01m[K/usr/include/c++/11/bits/alloc_traits.h:516:17:[m[K   required from ‘[01m[Kstatic void std::allocator_traits<std::allocator<_Tp1> >::construct(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, _Up*, _Args&& ...) [with _Up = BT_leaf_nodes_servers::BTNodeServer; _Args = {const rclcpp::NodeOptions&}; _Tp = BT_leaf_nodes_servers::BTNodeServer; std::allocator_traits<std::allocator<_Tp1> >::allocator_type = std::allocator<BT_leaf_nodes_servers::BTNodeServer>][m[K’
+[01m[K/usr/include/c++/11/bits/shared_ptr_base.h:519:39:[m[K   required from ‘[01m[Kstd::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {const rclcpp::NodeOptions&}; _Tp = BT_leaf_nodes_servers::BTNodeServer; _Alloc = std::allocator<BT_leaf_nodes_servers::BTNodeServer>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic][m[K’
+[01m[K/usr/include/c++/11/bits/shared_ptr_base.h:650:16:[m[K   required from ‘[01m[Kstd::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = BT_leaf_nodes_servers::BTNodeServer; _Alloc = std::allocator<BT_leaf_nodes_servers::BTNodeServer>; _Args = {const rclcpp::NodeOptions&}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic][m[K’
+[01m[K/usr/include/c++/11/bits/shared_ptr_base.h:1342:14:[m[K   required from ‘[01m[Kstd::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<BT_leaf_nodes_servers::BTNodeServer>; _Args = {const rclcpp::NodeOptions&}; _Tp = BT_leaf_nodes_servers::BTNodeServer; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic][m[K’
+[01m[K/usr/include/c++/11/bits/shared_ptr.h:409:59:[m[K   required from ‘[01m[Kstd::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<BT_leaf_nodes_servers::BTNodeServer>; _Args = {const rclcpp::NodeOptions&}; _Tp = BT_leaf_nodes_servers::BTNodeServer][m[K’
+[01m[K/usr/include/c++/11/bits/shared_ptr.h:862:14:[m[K   required from ‘[01m[Kstd::shared_ptr<_Tp> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = BT_leaf_nodes_servers::BTNodeServer; _Alloc = std::allocator<BT_leaf_nodes_servers::BTNodeServer>; _Args = {const rclcpp::NodeOptions&}][m[K’
+[01m[K/usr/include/c++/11/bits/shared_ptr.h:878:39:[m[K   required from ‘[01m[Kstd::shared_ptr<_Tp> std::make_shared(_Args&& ...) [with _Tp = BT_leaf_nodes_servers::BTNodeServer; _Args = {const rclcpp::NodeOptions&}][m[K’
+[01m[K/opt/ros/humble/include/rclcpp_components/rclcpp_components/node_factory_template.hpp:45:40:[m[K   required from ‘[01m[Krclcpp_components::NodeInstanceWrapper rclcpp_components::NodeFactoryTemplate<NodeT>::create_node_instance(const rclcpp::NodeOptions&) [with NodeT = BT_leaf_nodes_servers::BTNodeServer][m[K’
+[01m[K/opt/ros/humble/include/rclcpp_components/rclcpp_components/node_factory_template.hpp:43:3:[m[K   required from here
+[01m[K/usr/include/c++/11/ext/new_allocator.h:162:11:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KBT_leaf_nodes_servers::BTNodeServer::BTNodeServer(const rclcpp::NodeOptions&)[m[K’
+  162 |         { [01;31m[K::new((void *)__p) _Up(std::forward<_Args>(__args)...)[m[K; }
+      |           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:14:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KBT_leaf_nodes_servers::BTNodeServer::BTNodeServer()[m[K’ (deleted)
+   14 | class [01;36m[KBTNodeServer[m[K : public rclcpp::Node
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:14:7:[m[K [01;36m[Knote: [m[K  candidate expects 0 arguments, 1 provided
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:14:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KBT_leaf_nodes_servers::BTNodeServer::BTNodeServer(const BT_leaf_nodes_servers::BTNodeServer&)[m[K’ (deleted)
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:14:7:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kconst rclcpp::NodeOptions[m[K’ to ‘[01m[Kconst BT_leaf_nodes_servers::BTNodeServer&[m[K’
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:14:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KBT_leaf_nodes_servers::BTNodeServer::BTNodeServer(BT_leaf_nodes_servers::BTNodeServer&&)[m[K’ (deleted)
+[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:14:7:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kconst rclcpp::NodeOptions[m[K’ to ‘[01m[KBT_leaf_nodes_servers::BTNodeServer&&[m[K’
+gmake[2]: *** [CMakeFiles/BT_node_server.dir/build.make:76: CMakeFiles/BT_node_server.dir/src/bt_action_node_server.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/BT_node_server.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
