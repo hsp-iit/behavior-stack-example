@@ -1,8 +1,0 @@
-[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:[m[K In member function ‘[01m[Kvoid BT_leaf_nodes_servers::BTNodeServer::execute(std::shared_ptr<rclcpp_action::ServerGoalHandle<bt_leaf_nodes_interfaces::action::BT> >)[m[K’:
-[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_servers/src/bt_action_node_server.cpp:87:15:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = struct bt_leaf_nodes_interfaces::action::BT_Result_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct bt_leaf_nodes_interfaces::action::BT_Result_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kfinal_return_status[m[K’; did you mean ‘[01m[Kcurrent_return_status[m[K’?
-   87 |       result->[01;31m[Kfinal_return_status[m[K = 0;
-      |               [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
-      |               [32m[Kcurrent_return_status[m[K
-gmake[2]: *** [CMakeFiles/BT_node_server.dir/build.make:76: CMakeFiles/BT_node_server.dir/src/bt_action_node_server.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/BT_node_server.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2

@@ -1,8 +1,0 @@
-[01m[K/home/mcolledanchise/behavior-stack-example/libs/ros2_bt_nodes/ws/src/bt_leaf_nodes_clients/src/bt_leaf_node_client.cpp:7:10:[m[K [01;31m[Kfatal error: [m[Kaction_tutorials_interfaces/action/fibonacci.hpp: No such file or directory
-    7 | #include [01;31m[K"action_tutorials_interfaces/action/fibonacci.hpp"[m[K
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
-compilation terminated.
-gmake[2]: *** [CMakeFiles/BT_node_client.dir/build.make:76: CMakeFiles/BT_node_client.dir/src/bt_leaf_node_client.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/BT_node_client.dir/all] Error 2
-gmake[1]: *** Waiting for unfinished jobs....
-gmake: *** [Makefile:146: all] Error 2

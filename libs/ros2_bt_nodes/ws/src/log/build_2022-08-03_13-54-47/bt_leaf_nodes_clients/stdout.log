@@ -1,4 +1,0 @@
-[35m[1mConsolidate compiler generated dependencies of target bt_node_client[0m
-[35m[1mConsolidate compiler generated dependencies of target BT_node_client[0m
-[ 50%] Built target bt_node_client
-[ 75%] [32mBuilding CXX object CMakeFiles/BT_node_client.dir/src/bt_leaf_node_client.cpp.o[0m

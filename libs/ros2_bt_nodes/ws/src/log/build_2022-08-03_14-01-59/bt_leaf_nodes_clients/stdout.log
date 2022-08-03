@@ -1,4 +1,0 @@
-[ 25%] [32mBuilding CXX object CMakeFiles/BT_node_client.dir/src/bt_leaf_node_client.cpp.o[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/bt_node_client.dir/rclcpp_components/node_main_bt_node_client.cpp.o[0m
-[ 75%] [32m[1mLinking CXX executable bt_node_client[0m
-[ 75%] Built target bt_node_client
