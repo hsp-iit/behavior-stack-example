@@ -61,36 +61,30 @@ private:
   void execute(const std::shared_ptr<GoalHandleBT> goal_handle)
   {
     RCLCPP_INFO(this->get_logger(), "Executing goal");
-    rclcpp::Rate loop_rate(1);
+
     const auto goal = goal_handle->get_goal();
     auto feedback = std::make_shared<BT::Feedback>();
     auto result = std::make_shared<BT::Result>();
-
-    for (int i = 1; (i < goal->command) && rclcpp::ok(); ++i) {
-      // Check if there is a cancel request
-      if (goal_handle->is_canceling()) {
-        result->final_return_status = 0;
-        goal_handle->canceled(result);
-        RCLCPP_INFO(this->get_logger(), "Goal canceled");
-        return;
-      }
-      // Update sequence
-      // Publish feedback
-      goal_handle->publish_feedback(feedback);
-      RCLCPP_INFO(this->get_logger(), "Publish feedback");
-
-      loop_rate.sleep();
+    goal_handle->publish_feedback(feedback);
+    RCLCPP_INFO(this->get_logger(), "Node Started");
+    int tick_result = tick();
+    goal_handle->succeed(tick_result);
+    RCLCPP_INFO(this->get_logger(), "Node succeeded");
     }
 
-    // Check if goal is done
-    if (rclcpp::ok()) {
-      result->final_return_status = 0;
-      goal_handle->succeed(result);
-      RCLCPP_INFO(this->get_logger(), "Goal succeeded");
-    }
+
   }
-};  // class FibonacciActionServer
 
-}  // namespace action_tutorials_cpp
+  int tick(){
+    rclcpp::Rate loop_rate(1);
+    RCLCPP_INFO(this->get_logger(), "Node Ticked");
+    loop_rate.sleep();
+
+    return 1;
+  }
+
+};
+
+}
 
 RCLCPP_COMPONENTS_REGISTER_NODE(BT_leaf_nodes_servers::BTNodeServer)
