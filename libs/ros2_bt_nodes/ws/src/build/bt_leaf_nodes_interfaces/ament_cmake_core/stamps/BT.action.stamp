@@ -1,5 +1,0 @@
-int32 command # Request (tick or halt)
----
-int32 final_return_status # Result (running, success, failure)
----
-int32 current_return_status # Feedback (running, success, failure)
