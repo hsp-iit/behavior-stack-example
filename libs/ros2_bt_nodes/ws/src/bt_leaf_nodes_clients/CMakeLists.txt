@@ -8,6 +8,7 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(bt_leaf_nodes_interfaces REQUIRED)
+find_package(behaviortree_cpp_v3 REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(rclcpp_components REQUIRED)
@@ -25,7 +26,9 @@ if(BUILD_TESTING)
 endif()
 
 add_library(BT_node_client SHARED
-  src/bt_leaf_node_client.cpp)
+src/bt_leaf_node_client.cpp
+src/bt_leaf_node_client.h
+  )
 target_include_directories(BT_node_client PRIVATE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
@@ -33,6 +36,7 @@ target_compile_definitions(BT_node_client
   PRIVATE "ACTION_TUTORIALS_CPP_BUILDING_DLL")
 ament_target_dependencies(BT_node_client
   "bt_leaf_nodes_interfaces"
+  "behaviortree_cpp_v3"
   "rclcpp"
   "rclcpp_action"
   "rclcpp_components")
