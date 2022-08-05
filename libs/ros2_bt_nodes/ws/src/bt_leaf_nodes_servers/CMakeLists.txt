@@ -30,13 +30,13 @@ target_include_directories(BT_node_server PRIVATE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 target_compile_definitions(BT_node_server
-  PRIVATE "ACTION_TUTORIALS_CPP_BUILDING_DLL")
+  PRIVATE "BT_LEAF_NODES_SERVERS_BUILDING_DLL")
 ament_target_dependencies(BT_node_server
   "bt_leaf_nodes_interfaces"
   "rclcpp"
   "rclcpp_action"
   "rclcpp_components")
-rclcpp_components_register_node(BT_node_server PLUGIN "bt_leaf_nodes_servers::BTNodeServer" EXECUTABLE bt_node_server)
+rclcpp_components_register_node(BT_node_server PLUGIN "BT_leaf_nodes_servers::BTNodeServer" EXECUTABLE bt_node_server)
 install(TARGETS
   BT_node_server
   ARCHIVE DESTINATION lib

@@ -7,7 +7,7 @@
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
 
-//#include "action_tutorials_cpp/visibility_control.h"
+#include "bt_leaf_nodes_servers/visibility_control.h"
 
 namespace BT_leaf_nodes_servers
 {
@@ -17,22 +17,25 @@ public:
   using BTInterface = bt_leaf_nodes_interfaces::action::BTInterface;
   using GoalHandleBT = rclcpp_action::ServerGoalHandle<BTInterface>;
 
-//  BT_LEAF_NODES_SERVERS_PUBLIC
+  BT_LEAF_NODES_SERVERS_PUBLIC
   explicit BTNodeServer(const rclcpp::NodeOptions & options = rclcpp::NodeOptions())
   : Node("BT_node_server", options)
   {
     using namespace std::placeholders;
+    RCLCPP_INFO(this->get_logger(), "Creating Server");
 
-    this->node_server_ = rclcpp_action::create_server<BTInterface>(
+    this->action_server_ = rclcpp_action::create_server<BTInterface>(
       this,
       "BTNode",
       std::bind(&BTNodeServer::handle_goal, this, _1, _2),
       std::bind(&BTNodeServer::handle_cancel, this, _1),
       std::bind(&BTNodeServer::handle_accepted, this, _1));
+      RCLCPP_INFO(this->get_logger(), "Waiting");
+
   }
 
 private:
-  rclcpp_action::Server<BTInterface>::SharedPtr node_server_;
+  rclcpp_action::Server<BTInterface>::SharedPtr action_server_;
 
   rclcpp_action::GoalResponse handle_goal(
     const rclcpp_action::GoalUUID & uuid,
@@ -60,7 +63,7 @@ private:
   int tick(){
     rclcpp::Rate loop_rate(1);
     RCLCPP_INFO(this->get_logger(), "Node Ticked");
-    loop_rate.sleep();
+    //loop_rate.sleep();
 
     return 1;
   }
