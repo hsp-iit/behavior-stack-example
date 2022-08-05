@@ -9,17 +9,17 @@
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
-#include "bt_leaf_node_client.h"
+#include "bt_leaf_nodes_clients/bt_leaf_node_client.h"
 namespace BT_leaf_nodes_clients
 {
 
 
-  BTNodeClient::BTNodeClient(const rclcpp::NodeOptions & options)
-  : Node("bt_leaf_node_client", options), SyncActionNode("bt_leaf_node_client", {})
+  BTNodeClient::BTNodeClient(std::string name)
+  : Node("BTNodeClient"), SyncActionNode(name, {})
   {
     this->client_ptr_ = rclcpp_action::create_client<BTInterface>(
       this,
-      "BTInterface");
+      "BTNode");
 
     // this->timer_ = this->create_wall_timer(
     //   std::chrono::milliseconds(500),
@@ -37,15 +37,15 @@ namespace BT_leaf_nodes_clients
 
   BT::NodeStatus BTNodeClient::tick()
   {
+    RCLCPP_ERROR(this->get_logger(), "inside tick");
     using namespace std::placeholders;
-
-    this->timer_->cancel();
 
     if (!this->client_ptr_->wait_for_action_server()) {
       RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
       rclcpp::shutdown();
       return BT::NodeStatus::FAILURE; // Failure
     }
+    RCLCPP_INFO(this->get_logger(), "Server Availble");
 
     auto goal_msg = BTInterface::Goal();
     goal_msg.command = 1; // tick. TODO make enum
@@ -102,4 +102,4 @@ namespace BT_leaf_nodes_clients
 
 }  //
 
-RCLCPP_COMPONENTS_REGISTER_NODE(BT_leaf_nodes_clients::BTNodeClient)
+//RCLCPP_COMPONENTS_REGISTER_NODE(BT_leaf_nodes_clients::BTNodeClient)

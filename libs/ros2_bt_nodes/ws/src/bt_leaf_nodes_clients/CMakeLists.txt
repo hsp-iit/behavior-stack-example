@@ -27,23 +27,43 @@ endif()
 
 add_library(BT_node_client SHARED
 src/bt_leaf_node_client.cpp
-src/bt_leaf_node_client.h
+include/bt_leaf_nodes_clients/bt_leaf_node_client.h
   )
-target_include_directories(BT_node_client PRIVATE
+
+#ament_export_include_directories(include/)
+
+target_include_directories(BT_node_client PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
+
 target_compile_definitions(BT_node_client
-  PRIVATE "ACTION_TUTORIALS_CPP_BUILDING_DLL")
+  PRIVATE "BT_NODE_CLIENT_BUILDING_DLL")
+
+
 ament_target_dependencies(BT_node_client
   "bt_leaf_nodes_interfaces"
   "behaviortree_cpp_v3"
   "rclcpp"
   "rclcpp_action"
   "rclcpp_components")
+
 rclcpp_components_register_node(BT_node_client PLUGIN  "bt_leaf_nodes_clients::BTNodeClient" EXECUTABLE bt_node_client)
+
+ament_export_targets(BT_node_clientTargets HAS_LIBRARY_TARGET)
+ament_export_dependencies(bt_leaf_nodes_interfaces rclcpp_action)
+install(
+  DIRECTORY include/
+  DESTINATION include
+)
+
 install(TARGETS
   BT_node_client
+  EXPORT BT_node_clientTargets
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
-  RUNTIME DESTINATION bin)
+  RUNTIME DESTINATION bin
+  INCLUDES DESTINATION include
+  )
+
+
 ament_package()
